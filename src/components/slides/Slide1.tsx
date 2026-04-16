@@ -8,19 +8,24 @@ const Slide1 = () => (
       variants={staggerItem}
       src={logo}
       alt="Fingertipps logo"
-      width={160}
-      height={160}
-      className="mb-8"
+      width={140}
+      height={140}
+      className="mb-6"
     />
     <motion.h1 variants={staggerItem} className="text-6xl md:text-8xl font-black text-foreground leading-tight text-center">
       Fingertipps
     </motion.h1>
-    <motion.p variants={staggerItem} className="mt-6 text-2xl text-primary font-semibold tracking-wide text-center">
-      AI-Powered Commerce at Your Fingertips
+    <motion.p variants={staggerItem} className="mt-4 text-xl md:text-2xl text-primary font-semibold tracking-wide text-center">
+      AI-Powered Commerce Infrastructure for Small Businesses
     </motion.p>
-    <motion.p variants={staggerItem} className="mt-4 text-lg text-muted-foreground max-w-2xl text-center">
-      Launch, automate, and scale your business — all from one dashboard.
+    <motion.p variants={staggerItem} className="mt-3 text-lg text-muted-foreground text-center">
+      Launch. Sell. Automate. Grow.
     </motion.p>
+    <motion.div variants={staggerItem} className="mt-10 flex flex-col items-center gap-1 text-sm text-muted-foreground">
+      <p><span className="text-foreground font-medium">Founder:</span> Emmanuel Orilade</p>
+      <p>Lagos, Nigeria</p>
+      <p className="text-primary font-medium">Fingertipps.com</p>
+    </motion.div>
   </SlideContent>
 );
 

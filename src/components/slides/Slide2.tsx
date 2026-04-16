@@ -2,29 +2,59 @@ import { motion } from "framer-motion";
 import SlideContent, { staggerItem } from "../SlideContent";
 import problemImg from "@/assets/problem-illustration.jpg";
 
+const painPoints = [
+  "WhatsApp DMs for orders",
+  "Manual payment confirmation",
+  "Manual inventory management",
+  "Endless customer messages",
+  "High cost of setting up a storefront",
+  "No automation or analytics",
+];
+
+const results = [
+  "Lost sales",
+  "Payment confusion",
+  "Operational inefficiency",
+  "Poor customer experience",
+  "Limited ability to scale",
+];
+
 const Slide2 = () => (
   <SlideContent>
     <motion.p variants={staggerItem} className="text-sm font-semibold tracking-widest uppercase text-primary mb-4">
       The Problem
     </motion.p>
-    <motion.h2 variants={staggerItem} className="text-5xl md:text-7xl font-bold text-foreground text-center">
-      Commerce is Broken
+    <motion.h2 variants={staggerItem} className="text-4xl md:text-6xl font-bold text-foreground text-center">
+      Small Businesses Run in Chaos
     </motion.h2>
-    <motion.div variants={staggerItem} className="mt-10 flex flex-col md:flex-row items-center gap-12 max-w-5xl">
-      <img src={problemImg} alt="Fragmented commerce tools" loading="lazy" className="w-72 h-72 rounded-2xl object-cover opacity-80" />
-      <div className="flex flex-col gap-5 text-left">
-        {[
-          "Businesses juggle 6+ disconnected tools to run daily operations",
-          "Manual processes eat up 20+ hours per week",
-          "Scaling means more complexity, more cost, more chaos",
-        ].map((text, i) => (
-          <div key={i} className="flex items-start gap-3">
-            <span className="mt-1.5 w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-            <span className="text-lg text-muted-foreground leading-relaxed">{text}</span>
-          </div>
-        ))}
+    <motion.div variants={staggerItem} className="mt-8 flex flex-col md:flex-row items-start gap-10 max-w-5xl">
+      <div className="flex-1">
+        <p className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wide">Most businesses still rely on:</p>
+        <div className="flex flex-col gap-2">
+          {painPoints.map((text, i) => (
+            <div key={i} className="flex items-start gap-2.5">
+              <span className="mt-1.5 w-2 h-2 rounded-full bg-destructive flex-shrink-0" />
+              <span className="text-base text-muted-foreground">{text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <img src={problemImg} alt="Fragmented business operations" loading="lazy" className="w-48 h-48 rounded-2xl object-cover opacity-80 hidden md:block" />
+      <div className="flex-1">
+        <p className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wide">This results in:</p>
+        <div className="flex flex-col gap-2">
+          {results.map((text, i) => (
+            <div key={i} className="flex items-start gap-2.5">
+              <span className="mt-1.5 w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+              <span className="text-base text-muted-foreground">{text}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </motion.div>
+    <motion.p variants={staggerItem} className="mt-8 text-xl font-semibold text-foreground text-center">
+      Millions of African businesses are stuck running manually.
+    </motion.p>
   </SlideContent>
 );
 

@@ -9,8 +9,22 @@ import Slide5 from "./slides/Slide5";
 import Slide6 from "./slides/Slide6";
 import Slide7 from "./slides/Slide7";
 import Slide8 from "./slides/Slide8";
+import Slide9 from "./slides/Slide9";
+import Slide10 from "./slides/Slide10";
+import Slide11 from "./slides/Slide11";
+import Slide12 from "./slides/Slide12";
+import Slide13 from "./slides/Slide13";
+import Slide14 from "./slides/Slide14";
+import Slide15 from "./slides/Slide15";
+import Slide16 from "./slides/Slide16";
+import Slide17 from "./slides/Slide17";
+import Slide18 from "./slides/Slide18";
 
-const slides = [Slide1, Slide2, Slide3, Slide4, Slide5, Slide6, Slide7, Slide8];
+const slides = [
+  Slide1, Slide2, Slide3, Slide4, Slide5, Slide6,
+  Slide7, Slide8, Slide9, Slide10, Slide11, Slide12,
+  Slide13, Slide14, Slide15, Slide16, Slide17, Slide18,
+];
 
 const variants = {
   enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0 }),
@@ -64,6 +78,11 @@ const SlideDeck = () => {
         </motion.div>
       </AnimatePresence>
 
+      {/* Slide counter */}
+      <div className="absolute top-4 right-4 text-xs text-muted-foreground/50 font-mono">
+        {index + 1} / {slides.length}
+      </div>
+
       {/* Nav buttons */}
       {index > 0 && (
         <button
@@ -83,12 +102,12 @@ const SlideDeck = () => {
       )}
 
       {/* Progress dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => { setDirection(i > index ? 1 : -1); setIndex(i); }}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
               i === index ? "bg-primary scale-125" : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
             }`}
           />
