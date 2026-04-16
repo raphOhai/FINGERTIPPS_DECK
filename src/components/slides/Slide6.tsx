@@ -1,42 +1,35 @@
 import { motion } from "framer-motion";
 import SlideContent, { staggerItem } from "../SlideContent";
+import aiImg from "@/assets/ai-automation.jpg";
 
-const plans = [
-  { name: "Starter", price: "$49/mo", features: ["AI Store Builder", "Up to 100 products", "Basic analytics", "Email support"] },
-  { name: "Growth", price: "$149/mo", features: ["Everything in Starter", "Unlimited products", "Auto Marketing", "Priority support"], highlighted: true },
-  { name: "Enterprise", price: "Custom", features: ["Everything in Growth", "Dedicated AI models", "Custom integrations", "24/7 account manager"] },
+const products = [
+  { title: "Website Builder", desc: "Launch a branded online store in minutes" },
+  { title: "Inventory Automation", desc: "Stock updates automatically with every sale" },
+  { title: "Invoice Payments", desc: "Send invoices with one-click payment links" },
+  { title: "Affiliate Engine", desc: "Turn customers into sales partners" },
+  { title: "Marketing Campaigns", desc: "Send targeted email campaigns" },
+  { title: "AI Agent — Lira", desc: "AI that talks to customers & recommends products" },
+  { title: "Business Analytics", desc: "Understand sales performance & growth" },
 ];
 
 const Slide6 = () => (
   <SlideContent>
     <motion.p variants={staggerItem} className="text-sm font-semibold tracking-widest uppercase text-primary mb-4">
-      Pricing
+      Product Demo
     </motion.p>
-    <motion.h2 variants={staggerItem} className="text-5xl md:text-7xl font-bold text-foreground text-center">
-      Simple, Scalable Pricing
+    <motion.h2 variants={staggerItem} className="text-4xl md:text-6xl font-bold text-foreground text-center">
+      The Full Commerce Stack
     </motion.h2>
-    <motion.div variants={staggerItem} className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full">
-      {plans.map((plan) => (
-        <div
-          key={plan.name}
-          className={`rounded-2xl p-6 border flex flex-col ${
-            plan.highlighted
-              ? "border-primary bg-primary/10 shadow-lg shadow-primary/20"
-              : "border-border bg-secondary/30"
-          }`}
-        >
-          <h3 className="text-xl font-bold text-foreground">{plan.name}</h3>
-          <p className="text-3xl font-black text-primary mt-2">{plan.price}</p>
-          <ul className="mt-5 flex flex-col gap-2 flex-1">
-            {plan.features.map((f) => (
-              <li key={f} className="text-sm text-muted-foreground flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                {f}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+    <motion.div variants={staggerItem} className="mt-8 flex flex-col md:flex-row items-start gap-8 max-w-5xl w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 flex-1">
+        {products.map((p) => (
+          <div key={p.title} className="bg-secondary/50 rounded-xl p-4 border border-border">
+            <h3 className="text-sm font-bold text-primary mb-1">{p.title}</h3>
+            <p className="text-xs text-muted-foreground leading-relaxed">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+      <img src={aiImg} alt="Platform features" loading="lazy" className="w-56 h-56 rounded-2xl object-cover flex-shrink-0 hidden md:block" />
     </motion.div>
   </SlideContent>
 );
