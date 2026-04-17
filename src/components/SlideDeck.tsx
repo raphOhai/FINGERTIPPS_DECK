@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import logo from "@/assets/fingertipps-logo.png";
 import Slide1 from "./slides/Slide1";
 import Slide2 from "./slides/Slide2";
 import Slide3 from "./slides/Slide3";
@@ -77,6 +78,11 @@ const SlideDeck = () => {
           <Slide />
         </motion.div>
       </AnimatePresence>
+
+      {/* Persistent logo badge */}
+      <div className="absolute top-5 left-6 bg-cream rounded-md px-3 py-1.5 shadow-md z-10">
+        <img src={logo} alt="Fingertipps" className="h-5 w-auto" />
+      </div>
 
       {/* Slide counter */}
       <div className="absolute top-4 right-4 text-xs text-muted-foreground/50 font-mono">
