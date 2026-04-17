@@ -4,8 +4,10 @@ import logo from "@/assets/fingertipps-logo.png";
 
 const Slide18 = () => (
   <SlideContent>
-    <motion.img variants={staggerItem} src={logo} alt="Fingertipps" width={120} height={120} className="mb-6" />
-    <motion.h2 variants={staggerItem} className="text-4xl md:text-6xl font-bold text-foreground text-center max-w-3xl">
+    <motion.div variants={staggerItem} className="mb-8 bg-cream rounded-2xl px-8 py-5 shadow-2xl shadow-primary/20">
+      <img src={logo} alt="Fingertipps" className="h-14 md:h-16 w-auto" />
+    </motion.div>
+    <motion.h2 variants={staggerItem} className="text-5xl md:text-7xl font-black text-foreground text-center max-w-3xl leading-tight">
       Powering the Next Generation of African Entrepreneurs
     </motion.h2>
     <motion.div variants={staggerItem} className="mt-8 flex flex-col gap-3 text-center max-w-2xl">

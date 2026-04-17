@@ -4,14 +4,9 @@ import logo from "@/assets/fingertipps-logo.png";
 
 const Slide1 = () => (
   <SlideContent>
-    <motion.img
-      variants={staggerItem}
-      src={logo}
-      alt="Fingertipps logo"
-      width={140}
-      height={140}
-      className="mb-6"
-    />
+    <motion.div variants={staggerItem} className="mb-8 bg-cream rounded-2xl px-8 py-5 shadow-2xl shadow-primary/20">
+      <img src={logo} alt="Fingertipps logo" className="h-16 md:h-20 w-auto" />
+    </motion.div>
     <motion.h1 variants={staggerItem} className="text-6xl md:text-8xl font-black text-foreground leading-tight text-center">
       Fingertipps
     </motion.h1>
