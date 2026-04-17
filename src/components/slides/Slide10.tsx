@@ -10,10 +10,10 @@ const projections = [
 
 const Slide10 = () => (
   <SlideContent>
-    <motion.p variants={staggerItem} className="text-sm font-semibold tracking-widest uppercase text-primary mb-4">
+    <motion.p variants={staggerItem} className="text-base md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-5">
       Business Model
     </motion.p>
-    <motion.h2 variants={staggerItem} className="text-4xl md:text-6xl font-bold text-foreground text-center">
+    <motion.h2 variants={staggerItem} className="text-5xl md:text-7xl font-black text-foreground text-center leading-tight">
       Subscription SaaS
     </motion.h2>
     <motion.div variants={staggerItem} className="mt-8 flex gap-6 max-w-3xl w-full justify-center">

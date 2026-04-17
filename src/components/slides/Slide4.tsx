@@ -4,11 +4,13 @@ import logo from "@/assets/fingertipps-logo.png";
 
 const Slide4 = () => (
   <SlideContent>
-    <motion.p variants={staggerItem} className="text-sm font-semibold tracking-widest uppercase text-primary mb-4">
+    <motion.p variants={staggerItem} className="text-base md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-6">
       What is Fingertipps?
     </motion.p>
-    <motion.img variants={staggerItem} src={logo} alt="Fingertipps" width={100} height={100} className="mb-6" />
-    <motion.h2 variants={staggerItem} className="text-4xl md:text-6xl font-bold text-foreground text-center max-w-4xl">
+    <motion.div variants={staggerItem} className="mb-8 bg-cream rounded-xl px-6 py-4 shadow-xl shadow-primary/20">
+      <img src={logo} alt="Fingertipps" className="h-12 w-auto" />
+    </motion.div>
+    <motion.h2 variants={staggerItem} className="text-5xl md:text-7xl font-black text-foreground text-center max-w-4xl leading-tight">
       AI-Powered Commerce System
     </motion.h2>
     <motion.p variants={staggerItem} className="mt-6 text-xl text-muted-foreground max-w-3xl text-center leading-relaxed">

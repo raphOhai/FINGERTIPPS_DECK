@@ -10,10 +10,10 @@ const funds = [
 
 const Slide17 = () => (
   <SlideContent>
-    <motion.p variants={staggerItem} className="text-sm font-semibold tracking-widest uppercase text-primary mb-4">
+    <motion.p variants={staggerItem} className="text-base md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-5">
       Use of Funds
     </motion.p>
-    <motion.h2 variants={staggerItem} className="text-4xl md:text-6xl font-bold text-foreground text-center">
+    <motion.h2 variants={staggerItem} className="text-5xl md:text-7xl font-black text-foreground text-center leading-tight">
       Where the Money Goes
     </motion.h2>
     <motion.div variants={staggerItem} className="mt-10 grid grid-cols-2 gap-5 max-w-3xl w-full">
