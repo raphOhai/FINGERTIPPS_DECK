@@ -3,10 +3,10 @@ import SlideContent, { staggerItem } from "../SlideContent";
 
 const Slide16 = () => (
   <SlideContent>
-    <motion.p variants={staggerItem} className="text-sm font-semibold tracking-widest uppercase text-primary mb-4">
+    <motion.p variants={staggerItem} className="text-base md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-5">
       The Ask
     </motion.p>
-    <motion.h2 variants={staggerItem} className="text-4xl md:text-6xl font-bold text-foreground text-center">
+    <motion.h2 variants={staggerItem} className="text-5xl md:text-7xl font-black text-foreground text-center leading-tight">
       Investment Opportunity
     </motion.h2>
     <motion.div variants={staggerItem} className="mt-10 bg-primary/10 rounded-2xl p-8 border border-primary/30 text-center max-w-md">

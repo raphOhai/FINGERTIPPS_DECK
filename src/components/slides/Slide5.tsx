@@ -15,10 +15,10 @@ const features = [
 
 const Slide5 = () => (
   <SlideContent>
-    <motion.p variants={staggerItem} className="text-sm font-semibold tracking-widest uppercase text-primary mb-4">
+    <motion.p variants={staggerItem} className="text-base md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-5">
       The Solution
     </motion.p>
-    <motion.h2 variants={staggerItem} className="text-4xl md:text-6xl font-bold text-foreground text-center">
+    <motion.h2 variants={staggerItem} className="text-5xl md:text-7xl font-black text-foreground text-center leading-tight">
       One Dashboard. Total Control.
     </motion.h2>
     <motion.div variants={staggerItem} className="mt-8 flex flex-col md:flex-row items-center gap-8 max-w-5xl w-full">

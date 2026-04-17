@@ -10,10 +10,10 @@ const metrics = [
 
 const Slide11 = () => (
   <SlideContent>
-    <motion.p variants={staggerItem} className="text-sm font-semibold tracking-widest uppercase text-primary mb-4">
+    <motion.p variants={staggerItem} className="text-base md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-5">
       Traction
     </motion.p>
-    <motion.h2 variants={staggerItem} className="text-4xl md:text-6xl font-bold text-foreground text-center">
+    <motion.h2 variants={staggerItem} className="text-5xl md:text-7xl font-black text-foreground text-center leading-tight">
       Early Momentum
     </motion.h2>
     <motion.p variants={staggerItem} className="mt-3 text-lg text-muted-foreground text-center max-w-2xl">

@@ -14,10 +14,10 @@ const keys = ["store", "inventory", "invoices", "affiliate", "marketing", "ai", 
 
 const Slide14 = () => (
   <SlideContent>
-    <motion.p variants={staggerItem} className="text-sm font-semibold tracking-widest uppercase text-primary mb-4">
+    <motion.p variants={staggerItem} className="text-base md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-5">
       Competitive Landscape
     </motion.p>
-    <motion.h2 variants={staggerItem} className="text-4xl md:text-5xl font-bold text-foreground text-center">
+    <motion.h2 variants={staggerItem} className="text-5xl md:text-6xl font-black text-foreground text-center leading-tight">
       Fingertipps vs. The Rest
     </motion.h2>
     <motion.div variants={staggerItem} className="mt-8 w-full max-w-4xl overflow-x-auto">
