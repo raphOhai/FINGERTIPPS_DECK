@@ -1,15 +1,11 @@
 import { motion } from "framer-motion";
 import SlideContent, { staggerItem } from "../SlideContent";
-import logo from "@/assets/fingertipps-logo.png";
 
 const Slide4 = () => (
   <SlideContent>
     <motion.p variants={staggerItem} className="text-base md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-6">
       What is Fingertipps?
     </motion.p>
-    <motion.div variants={staggerItem} className="mb-8 bg-cream rounded-xl px-6 py-4 shadow-xl shadow-primary/20">
-      <img src={logo} alt="Fingertipps" className="h-12 w-auto" />
-    </motion.div>
     <motion.h2 variants={staggerItem} className="text-5xl md:text-7xl font-black text-foreground text-center max-w-4xl leading-tight">
       AI-Powered Commerce System
     </motion.h2>
