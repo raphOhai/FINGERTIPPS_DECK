@@ -1,9 +1,6 @@
 import { motion } from "framer-motion";
 import SlideContent, { staggerItem } from "../SlideContent";
 
-const Slide4 = () => null;
-void Slide4;
-
 const Slide18 = () => (
   <SlideContent>
     <motion.h2 variants={staggerItem} className="text-5xl md:text-7xl font-black text-foreground text-center max-w-3xl leading-tight">
