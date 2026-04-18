@@ -8,7 +8,7 @@ interface SlideContentProps {
 const staggerContainer = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.15 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.12 },
   },
 };
 
@@ -22,7 +22,7 @@ const SlideContent = ({ children }: SlideContentProps) => (
     variants={staggerContainer}
     initial="hidden"
     animate="visible"
-    className="flex flex-col items-center justify-center h-full w-full px-16 md:px-32"
+    className="flex flex-col items-center justify-center min-h-full w-full px-5 py-16 sm:px-10 md:px-20 lg:px-32 overflow-y-auto"
   >
     {children}
   </motion.div>

@@ -1,42 +1,50 @@
 import { motion } from "framer-motion";
+import { Globe, Bot, ShoppingBag, Package, FileText, Mail, Users, BarChart3 } from "lucide-react";
 import SlideContent, { staggerItem } from "../SlideContent";
-import dashboardImg from "@/assets/dashboard-mockup.jpg";
 
 const features = [
-  "Launch a website in under 3 minutes",
-  "Automate operations with AI (Lira)",
-  "Sell products & accept payments online",
-  "Manage inventory automatically",
-  "Create & send invoices with payment links",
-  "Run email marketing campaigns",
-  "Launch affiliate programs",
-  "Analyze business performance",
+  { icon: Globe, text: "Launch a website in under 3 minutes" },
+  { icon: Bot, text: "Automate operations with AI (Lira)" },
+  { icon: ShoppingBag, text: "Sell products & accept payments online" },
+  { icon: Package, text: "Manage inventory automatically" },
+  { icon: FileText, text: "Create & send invoices with payment links" },
+  { icon: Mail, text: "Run email marketing campaigns" },
+  { icon: Users, text: "Launch affiliate programs" },
+  { icon: BarChart3, text: "Analyze business performance" },
 ];
 
 const Slide5 = () => (
   <SlideContent>
-    <motion.p variants={staggerItem} className="text-base md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-5">
+    <motion.p variants={staggerItem} className="text-sm sm:text-base md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-4">
       The Solution
     </motion.p>
-    <motion.h2 variants={staggerItem} className="text-5xl md:text-7xl font-black text-foreground text-center leading-tight">
-      One Dashboard. Total Control.
+    <motion.h2 variants={staggerItem} className="text-4xl sm:text-5xl md:text-7xl font-black text-foreground text-center leading-[1.05]">
+      One Dashboard.
+      <br />
+      <span className="text-primary">Total Control.</span>
     </motion.h2>
-    <motion.div variants={staggerItem} className="mt-8 flex flex-col md:flex-row items-center gap-8 max-w-5xl w-full">
-      <div className="flex-1 grid grid-cols-1 gap-2">
-        {features.map((f, i) => (
-          <div key={i} className="flex items-center gap-2.5">
-            <span className="w-5 h-5 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center flex-shrink-0">
-              <span className="text-xs text-primary font-bold">✓</span>
-            </span>
-            <span className="text-sm text-muted-foreground">{f}</span>
-          </div>
-        ))}
-      </div>
-      <img src={dashboardImg} alt="Fingertipps dashboard" loading="lazy" className="w-full max-w-md rounded-2xl shadow-2xl shadow-primary/10 border border-border" />
-    </motion.div>
-    <motion.p variants={staggerItem} className="mt-6 text-base font-semibold text-primary text-center">
-      Everything runs from one unified platform.
+    <motion.p variants={staggerItem} className="mt-4 text-base sm:text-lg text-muted-foreground text-center max-w-2xl">
+      Everything a small business needs to launch, sell, automate, and grow — built into a single intuitive platform.
     </motion.p>
+
+    <motion.div variants={staggerItem} className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-4xl w-full">
+      {features.map(({ icon: Icon, text }, i) => (
+        <div
+          key={i}
+          className="group flex items-center gap-3 sm:gap-4 bg-secondary/40 hover:bg-secondary/70 transition-colors rounded-xl p-3 sm:p-4 border border-border"
+        >
+          <span className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/25 transition-colors">
+            <Icon className="w-5 h-5 text-primary" />
+          </span>
+          <span className="text-sm sm:text-base text-foreground font-medium leading-snug">{text}</span>
+        </div>
+      ))}
+    </motion.div>
+
+    <motion.div variants={staggerItem} className="mt-8 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/15 border border-primary/30">
+      <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+      <span className="text-sm sm:text-base font-semibold text-primary">Everything runs from one unified platform</span>
+    </motion.div>
   </SlideContent>
 );
 
