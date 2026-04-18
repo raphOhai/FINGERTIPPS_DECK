@@ -79,9 +79,9 @@ const SlideDeck = () => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Persistent logo badge */}
-      <div className="absolute top-5 left-6 bg-cream rounded-md px-3 py-1.5 shadow-md z-10">
-        <img src={logo} alt="Fingertipps" className="h-5 w-auto" />
+      {/* Persistent logo */}
+      <div className="absolute top-5 left-6 z-10">
+        <img src={logo} alt="Fingertipps" className="h-6 w-auto" />
       </div>
 
       {/* Slide counter */}
