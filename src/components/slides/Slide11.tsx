@@ -1,34 +1,35 @@
 import { motion } from "framer-motion";
+import { Users, DollarSign, TrendingUp } from "lucide-react";
 import SlideContent, { staggerItem } from "../SlideContent";
-import growthImg from "@/assets/growth-visual.jpg";
 
 const metrics = [
-  { value: "200+", label: "Users via organic channels in 1 year" },
-  { value: "₦25M+", label: "Total Processed Volume (Jan 2025 – Date)" },
-  { value: "20%", label: "Month-over-Month Growth" },
+  { value: "200+", label: "Users via organic channels", sub: "in 1 year", icon: Users },
+  { value: "₦25M+", label: "Total Processed Volume", sub: "Jan 2025 – Date", icon: DollarSign },
+  { value: "20%", label: "Month-over-Month Growth", sub: "consistent", icon: TrendingUp },
 ];
 
 const Slide11 = () => (
   <SlideContent>
-    <motion.p variants={staggerItem} className="text-base md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-5">
+    <motion.p variants={staggerItem} className="text-sm sm:text-base md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-4">
       Traction
     </motion.p>
-    <motion.h2 variants={staggerItem} className="text-5xl md:text-7xl font-black text-foreground text-center leading-tight">
-      Early Momentum
+    <motion.h2 variants={staggerItem} className="text-4xl sm:text-5xl md:text-7xl font-black text-foreground text-center leading-[1.05]">
+      Early <span className="text-primary">Momentum</span>
     </motion.h2>
-    <motion.p variants={staggerItem} className="mt-3 text-lg text-muted-foreground text-center max-w-2xl">
+    <motion.p variants={staggerItem} className="mt-4 text-base sm:text-lg text-muted-foreground text-center max-w-2xl">
       Investors care about momentum. Here's what we've achieved so far.
+    </motname>
     </motion.p>
-    <motion.div variants={staggerItem} className="mt-8 flex flex-col md:flex-row items-center gap-10 max-w-5xl w-full">
-      <div className="flex flex-col gap-6 flex-1">
-        {metrics.map((m) => (
-          <div key={m.label} className="flex items-baseline gap-4">
-            <span className="text-4xl md:text-5xl font-black text-primary">{m.value}</span>
-            <span className="text-base text-muted-foreground">{m.label}</span>
-          </div>
-        ))}
-      </div>
-      <img src={growthImg} alt="Growth trajectory" loading="lazy" className="w-56 h-56 rounded-2xl object-cover opacity-90" />
+
+    <motion.div variants={staggerItem} className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl w-full">
+      {metrics.map(({ value, label, sub, icon: Icon }) => (
+        <div key={label} className="bg-gradient-to-br from-primary/15 to-secondary/40 rounded-2xl p-6 border border-primary/30 relative overflow-hidden">
+          <Icon className="absolute -bottom-4 -right-4 w-24 h-24 text-primary/10" />
+          <p className="text-4xl sm:text-5xl font-black text-primary relative">{value}</p>
+          <p className="text-sm sm:text-base font-semibold text-foreground mt-3 relative">{label}</p>
+          <p className="text-xs text-muted-foreground mt-1 relative">{sub}</p>
+        </div>
+      ))}
     </motion.div>
   </SlideContent>
 );
