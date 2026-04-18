@@ -18,7 +18,6 @@ const Slide11 = () => (
     </motion.h2>
     <motion.p variants={staggerItem} className="mt-4 text-base sm:text-lg text-muted-foreground text-center max-w-2xl">
       Investors care about momentum. Here's what we've achieved so far.
-    </motname>
     </motion.p>
 
     <motion.div variants={staggerItem} className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl w-full">
