@@ -19,8 +19,8 @@ import Slide17 from "./slides/Slide17";
 import Slide18 from "./slides/Slide18";
 
 const slides = [
-  Slide1, Slide2, Slide4, Slide6,
-  Slide8, Slide9, Slide10, Slide11, Slide12,
+  Slide1, Slide2, Slide4, Slide8, Slide9,
+  Slide6, Slide10, Slide11, Slide12,
   Slide13, Slide14, Slide15, Slide16, Slide17, Slide18,
 ];
 
