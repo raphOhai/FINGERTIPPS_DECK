@@ -8,7 +8,7 @@ const features = [
   { icon: ShoppingBag, text: "Sell products & accept payments" },
   { icon: Package, text: "Manage inventory automatically" },
   { icon: FileText, text: "Create & send invoices with payment links" },
-  { icon: Mail, text: "Run email marketing campaigns" },
+  { icon: Mail, text: "Run social media and email marketing campaigns" },
   { icon: Users, text: "Launch affiliate programs" },
   { icon: BarChart3, text: "Analyze business performance" },
 ];
@@ -16,10 +16,10 @@ const features = [
 const Slide4 = () => (
   <SlideContent>
     <motion.p variants={staggerItem} className="text-sm sm:text-base md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-4">
-      What is Fingertipps?
+      The Solution
     </motion.p>
     <motion.h2 variants={staggerItem} className="text-4xl sm:text-5xl md:text-7xl font-black text-foreground text-center leading-[1.05]">
-      One Dashboard.
+      Fingertipps — One Dashboard,
       <br />
       <span className="text-primary">Total Control.</span>
     </motion.h2>
