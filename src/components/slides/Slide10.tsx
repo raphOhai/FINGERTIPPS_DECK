@@ -55,7 +55,7 @@ const Slide10 = () => (
       </div>
     </motion.div>
 
-    <motion.div variants={staggerItem} className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl w-full">
+    <motion.div variants={staggerItem} className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl w-full">
       {projections.map((p) => (
         <div key={p.label} className="bg-secondary/30 rounded-xl p-4 border border-border text-center">
           <p className="text-xl sm:text-2xl font-black text-primary">{p.value}</p>
