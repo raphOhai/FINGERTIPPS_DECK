@@ -15,15 +15,15 @@ const features = [
 
 const Slide4 = () => (
   <SlideContent>
-    <motion.p variants={staggerItem} className="text-sm sm:text-base md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-4">
+    <motion.p variants={staggerItem} className="text-xs sm:text-sm md:text-base font-bold tracking-[0.2em] uppercase text-primary mb-3">
       The Solution
     </motion.p>
-    <motion.h2 variants={staggerItem} className="text-4xl sm:text-5xl md:text-7xl font-black text-foreground text-center leading-[1.05]">
+    <motion.h2 variants={staggerItem} className="text-3xl sm:text-4xl md:text-6xl font-black text-foreground text-center leading-[1.05]">
       Fingertipps — One Dashboard,
       <br />
       <span className="text-primary">Total Control.</span>
     </motion.h2>
-    <motion.p variants={staggerItem} className="mt-6 text-base sm:text-xl text-muted-foreground max-w-3xl text-center leading-relaxed">
+    <motion.p variants={staggerItem} className="mt-4 text-sm sm:text-lg text-muted-foreground max-w-3xl text-center leading-relaxed">
       An AI-powered commerce system that helps small businesses{" "}
       <span className="text-primary font-semibold">launch</span>,{" "}
       <span className="text-primary font-semibold">sell</span>,{" "}
@@ -31,23 +31,23 @@ const Slide4 = () => (
       <span className="text-primary font-semibold">grow</span> — all from one platform.
     </motion.p>
 
-    <motion.div variants={staggerItem} className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3 max-w-5xl w-full">
+    <motion.div variants={staggerItem} className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-2.5 max-w-5xl w-full">
       {features.map(({ icon: Icon, text }, i) => (
         <div
           key={i}
-          className="group flex flex-col items-center text-center gap-2 bg-secondary/40 hover:bg-secondary/70 hover:border-primary/40 transition-colors rounded-xl p-3 sm:p-4 border border-border"
+          className="group flex flex-col items-center text-center gap-1.5 bg-secondary/40 hover:bg-secondary/70 hover:border-primary/40 transition-colors rounded-xl p-2.5 sm:p-3 border border-border"
         >
-          <span className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/25 transition-colors">
-            <Icon className="w-5 h-5 text-primary" />
+          <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/25 transition-colors">
+            <Icon className="w-4 h-4 text-primary" />
           </span>
           <span className="text-xs sm:text-sm text-foreground font-medium leading-snug">{text}</span>
         </div>
       ))}
     </motion.div>
 
-    <motion.div variants={staggerItem} className="mt-8 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/15 border border-primary/30">
+    <motion.div variants={staggerItem} className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/15 border border-primary/30">
       <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-      <span className="text-sm sm:text-base font-semibold text-primary">Everything runs from one unified platform</span>
+      <span className="text-xs sm:text-sm font-semibold text-primary">Everything runs from one unified platform</span>
     </motion.div>
   </SlideContent>
 );
