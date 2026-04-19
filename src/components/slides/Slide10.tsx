@@ -4,9 +4,8 @@ import SlideContent, { staggerItem } from "../SlideContent";
 
 const projections = [
   { value: "50,000", label: "Businesses (12-month projection)" },
-  { value: "₦60,000", label: "Avg monthly transaction / business" },
-  { value: "₦3,000", label: "Avg revenue / business" },
-  { value: "₦1.5B", label: "Projected revenue by Q4" },
+  { value: "₦4,250", label: "Avg revenue / business" },
+  { value: "₦1.5B", label: "Projected revenue after 12-months" },
 ];
 
 const monthlyFeatures = ["All core features", "AI agent (Lira)", "Cancel anytime"];
