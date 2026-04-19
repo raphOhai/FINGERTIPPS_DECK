@@ -3,14 +3,14 @@ import { Check, X } from "lucide-react";
 import SlideContent, { staggerItem } from "../SlideContent";
 
 const competitors = [
-  { name: "Shopify", store: true, inventory: false, invoices: false, affiliate: false, marketing: false, ai: false, affordable: false },
-  { name: "Flutterwave Store", store: true, inventory: false, invoices: true, affiliate: false, marketing: false, ai: false, affordable: true },
-  { name: "Selar", store: true, inventory: false, invoices: false, affiliate: true, marketing: false, ai: false, affordable: true },
-  { name: "Paystack Storefronts", store: true, inventory: false, invoices: false, affiliate: false, marketing: false, ai: false, affordable: true },
   { name: "Fingertipps", store: true, inventory: true, invoices: true, affiliate: true, marketing: true, ai: true, affordable: true },
+  { name: "Shopify", store: true, inventory: true, invoices: true, affiliate: false, marketing: true, ai: false, affordable: false },
+  { name: "Flutterwave Store", store: false, inventory: false, invoices: true, affiliate: false, marketing: false, ai: false, affordable: true },
+  { name: "Selar", store: false, inventory: false, invoices: false, affiliate: true, marketing: false, ai: false, affordable: true },
+  { name: "Bumpa", store: false, inventory: true, invoices: true, affiliate: false, marketing: false, ai: false, affordable: true },
 ];
 
-const cols = ["Store", "Inventory", "Invoices", "Affiliate", "Marketing", "AI", "Affordable"];
+const cols = ["Store Customization", "Inventory", "Invoices", "Affiliate", "Marketing", "AI", "Affordable"];
 const keys = ["store", "inventory", "invoices", "affiliate", "marketing", "ai", "affordable"] as const;
 
 const Slide14 = () => (
