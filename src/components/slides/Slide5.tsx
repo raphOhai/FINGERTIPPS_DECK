@@ -27,16 +27,16 @@ const Slide5 = () => (
       Everything a small business needs to launch, sell, automate, and grow — built into a single intuitive platform.
     </motion.p>
 
-    <motion.div variants={staggerItem} className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-4xl w-full">
+    <motion.div variants={staggerItem} className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3 max-w-5xl w-full">
       {features.map(({ icon: Icon, text }, i) => (
         <div
           key={i}
-          className="group flex items-center gap-3 sm:gap-4 bg-secondary/40 hover:bg-secondary/70 transition-colors rounded-xl p-3 sm:p-4 border border-border"
+          className="group flex flex-col items-center text-center gap-2 bg-secondary/40 hover:bg-secondary/70 hover:border-primary/40 transition-colors rounded-xl p-3 sm:p-4 border border-border"
         >
           <span className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/25 transition-colors">
             <Icon className="w-5 h-5 text-primary" />
           </span>
-          <span className="text-sm sm:text-base text-foreground font-medium leading-snug">{text}</span>
+          <span className="text-xs sm:text-sm text-foreground font-medium leading-snug">{text}</span>
         </div>
       ))}
     </motion.div>
