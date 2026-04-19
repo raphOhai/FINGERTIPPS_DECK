@@ -4,9 +4,8 @@ import SlideContent, { staggerItem } from "../SlideContent";
 
 const projections = [
   { value: "50,000", label: "Businesses (12-month projection)" },
-  { value: "₦60,000", label: "Avg monthly transaction / business" },
-  { value: "₦3,000", label: "Avg revenue / business" },
-  { value: "₦1.5B", label: "Projected revenue by Q4" },
+  { value: "₦4,250", label: "Avg revenue / business" },
+  { value: "₦1.5B", label: "Projected revenue after 12-months" },
 ];
 
 const monthlyFeatures = ["All core features", "AI agent (Lira)", "Cancel anytime"];
@@ -56,7 +55,7 @@ const Slide10 = () => (
       </div>
     </motion.div>
 
-    <motion.div variants={staggerItem} className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl w-full">
+    <motion.div variants={staggerItem} className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl w-full">
       {projections.map((p) => (
         <div key={p.label} className="bg-secondary/30 rounded-xl p-4 border border-border text-center">
           <p className="text-xl sm:text-2xl font-black text-primary">{p.value}</p>
