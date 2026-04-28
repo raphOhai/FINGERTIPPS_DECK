@@ -6,16 +6,16 @@ const Slide1 = () => (
     <motion.div variants={staggerItem} className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
       <span className="h-px w-6 sm:w-10 bg-primary" />
       <span className="text-[9px] sm:text-[11px] font-mono tracking-[0.3em] uppercase text-primary whitespace-nowrap">
-        Investor Deck &middot; 2026
+        Pitch Deck &middot; Pre-Seed &middot; 2026
       </span>
       <span className="h-px w-6 sm:w-10 bg-primary" />
     </motion.div>
 
     <motion.h1
       variants={staggerItem}
-      className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-foreground leading-[0.9] tracking-tight text-center"
+      className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-primary leading-[0.9] tracking-tight text-center"
     >
-      Finger<span className="text-primary">tipps</span>
+      Fingertipps
     </motion.h1>
 
     <motion.div variants={staggerItem} className="mt-6 sm:mt-8 max-w-2xl text-center px-2">
@@ -45,29 +45,44 @@ const Slide1 = () => (
     >
       <div>
         <p className="text-[9px] sm:text-[10px] font-mono tracking-[0.2em] sm:tracking-[0.25em] uppercase text-muted-foreground/70">
-          Founder
+          Co-Founders
         </p>
-        <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm md:text-base text-foreground font-semibold">
+        <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm md:text-base text-foreground font-semibold leading-snug">
           Emmanuel Orilade
+          <br />
+          Raphael Ohai
         </p>
       </div>
       <div>
         <p className="text-[9px] sm:text-[10px] font-mono tracking-[0.2em] sm:tracking-[0.25em] uppercase text-muted-foreground/70">
-          Based In
+          HQ
         </p>
         <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm md:text-base text-foreground font-semibold">
-          Lagos, Nigeria
+          Abuja, Nigeria
         </p>
       </div>
       <div>
         <p className="text-[9px] sm:text-[10px] font-mono tracking-[0.2em] sm:tracking-[0.25em] uppercase text-muted-foreground/70">
           Web
         </p>
-        <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm md:text-base text-primary font-semibold break-all">
+        <a
+          href="https://fingertipps.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-1.5 sm:mt-2 inline-block text-xs sm:text-sm md:text-base text-primary font-semibold break-all underline hover:text-primary/80 transition-colors"
+        >
           Fingertipps.com
-        </p>
+        </a>
       </div>
     </motion.div>
+
+    <motion.a
+      variants={staggerItem}
+      href="mailto:emmanuel@fingertipps.com"
+      className="mt-5 sm:mt-6 text-[10px] sm:text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors font-mono"
+    >
+      emmanuel@fingertipps.com
+    </motion.a>
   </SlideContent>
 );
 
