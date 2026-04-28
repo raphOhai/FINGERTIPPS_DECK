@@ -1,40 +1,106 @@
 import { motion } from "framer-motion";
 import { Megaphone, Code2, UserPlus, Building } from "lucide-react";
-import SlideContent, { staggerItem } from "../SlideContent";
+import SlideContent, { staggerItem, Eyebrow } from "../SlideContent";
 
 const funds = [
-  { pct: 40, label: "Marketing & Sales", desc: "Customer acquisition, retention & revenue growth", icon: Megaphone },
-  { pct: 30, label: "Product Development", desc: "Defend competitive moat, serve customers better", icon: Code2 },
-  { pct: 20, label: "Strategic Hires", desc: "Key hires to fuel long-term growth", icon: UserPlus },
-  { pct: 10, label: "Operations & Legal", desc: "Infrastructure and compliance", icon: Building },
+  {
+    pct: 40,
+    label: "Marketing & Sales",
+    points: [
+      "Attract new customers and retain existing ones.",
+      "Drive revenue growth through focused GTM execution.",
+    ],
+    icon: Megaphone,
+  },
+  {
+    pct: 30,
+    label: "Product Development",
+    points: [
+      "Further develop the product suite end-to-end.",
+      "Keep offerings competitive and aligned with customer needs.",
+    ],
+    icon: Code2,
+  },
+  {
+    pct: 20,
+    label: "Strategic Hires",
+    points: [
+      "Hire key leaders including a CMO and compliance officer.",
+      "Expand the core team to support long-term growth.",
+    ],
+    icon: UserPlus,
+  },
+  {
+    pct: 10,
+    label: "Operations & Legal",
+    points: [
+      "Strengthen operational infrastructure and controls.",
+      "Cover legal, compliance, and governance requirements.",
+    ],
+    icon: Building,
+  },
 ];
 
 const Slide17 = () => (
   <SlideContent>
-    <motion.p variants={staggerItem} className="text-sm sm:text-base md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-4">
-      Use of Funds
-    </motion.p>
-    <motion.h2 variants={staggerItem} className="text-4xl sm:text-5xl md:text-7xl font-black text-foreground text-center leading-[1.05]">
-      Where the <span className="text-primary">Money Goes</span>
+    <Eyebrow index="14">Use of Funds</Eyebrow>
+
+    <motion.h2
+      variants={staggerItem}
+      className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-foreground text-center leading-[0.95] tracking-tight"
+    >
+      Where the <span className="text-primary">money goes.</span>
     </motion.h2>
 
-    <motion.div variants={staggerItem} className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl w-full">
-      {funds.map(({ pct, label, desc, icon: Icon }) => (
-        <div key={label} className="bg-secondary/40 rounded-2xl p-5 sm:p-6 border border-border relative overflow-hidden">
-          <div className="flex items-center justify-between mb-3">
-            <div className="w-11 h-11 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center">
-              <Icon className="w-5 h-5 text-primary" />
+    <motion.div
+      variants={staggerItem}
+      className="mt-3 sm:mt-4 max-w-4xl w-full overflow-hidden rounded-xl sm:rounded-2xl border border-border/60"
+    >
+      <div className="flex h-1.5 w-full">
+        <div className="bg-primary" style={{ width: "40%" }} />
+        <div className="bg-primary/70" style={{ width: "30%" }} />
+        <div className="bg-primary/45" style={{ width: "20%" }} />
+        <div className="bg-primary/25" style={{ width: "10%" }} />
+      </div>
+
+      <div className="grid grid-cols-2 gap-px bg-border/60">
+        {funds.map(({ pct, label, points, icon: Icon }, i) => (
+          <div key={label} className="bg-background p-2.5 sm:p-3.5 md:p-4">
+            <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+              <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-primary flex-shrink-0" strokeWidth={1.5} />
+                <span className="text-[7px] sm:text-[8px] font-mono tracking-[0.2em] uppercase text-muted-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <span className="text-xl sm:text-2xl md:text-3xl font-black text-foreground tracking-tight leading-none">
+                {pct}%
+              </span>
             </div>
-            <span className="text-3xl sm:text-4xl font-black text-primary">{pct}%</span>
+            <h3 className="text-[11px] sm:text-xs md:text-sm font-bold text-foreground leading-snug">{label}</h3>
+            <ul className="mt-0.5 sm:mt-1 flex flex-col gap-0.5 sm:gap-1">
+              {points.map((point, idx) => (
+                <li
+                  key={point}
+                  className={`flex items-start gap-1 text-[9px] sm:text-[10px] md:text-[11px] text-muted-foreground leading-snug ${idx > 0 ? "hidden sm:flex" : ""}`}
+                >
+                  <span className="mt-1 h-1 w-1 rounded-full bg-primary/70 flex-shrink-0" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <h3 className="text-base sm:text-lg font-bold text-foreground">{label}</h3>
-          <p className="text-xs sm:text-sm text-muted-foreground mt-1.5">{desc}</p>
-          <div className="mt-4 h-1.5 bg-background/40 rounded-full overflow-hidden">
-            <div className="h-full bg-gradient-to-r from-primary to-primary/60 rounded-full" style={{ width: `${pct}%` }} />
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </motion.div>
+
+    <motion.p
+      variants={staggerItem}
+      className="mt-2.5 sm:mt-4 text-[10px] sm:text-[11px] md:text-xs text-muted-foreground text-center max-w-2xl px-2 hidden sm:block"
+    >
+      Capital deployed where it produces the most leverage &mdash; growth,
+      product, and the team.
+    </motion.p>
   </SlideContent>
 );
 
