@@ -1,38 +1,102 @@
 import { motion } from "framer-motion";
 import { Smartphone, CreditCard, Cpu } from "lucide-react";
-import SlideContent, { staggerItem } from "../SlideContent";
+import SlideContent, { staggerItem, Eyebrow } from "../SlideContent";
 
 const trends = [
-  { icon: Smartphone, title: "Social Commerce Explosion", desc: "64% of small businesses sell using social media (Moniepoint, 2026)" },
-  { icon: CreditCard, title: "Digital Payments Growth", desc: "Payment infrastructure across Africa is rapidly expanding" },
-  { icon: Cpu, title: "AI Adoption", desc: "Businesses are adopting AI tools to automate operations" },
+  {
+    icon: Smartphone,
+    title: "Social Commerce",
+    stat: "64%",
+    statLabel: "of small businesses sell on social",
+    desc: "Most African vendors already operate on Instagram, TikTok, and WhatsApp.",
+    source: {
+      label: "Moniepoint, 2026",
+      url: "https://moniepoint.com/blog/nigeria-small-business-statistics",
+    },
+  },
+  {
+    icon: CreditCard,
+    title: "Digital Payments",
+    stat: "57.7M",
+    statLabel: "Nigerians are in the financial inclusion bracket (52% of adults)",
+    desc: "NIP volumes grew from 2B (2020) to 11B (2024), a 53% CAGR. Transaction value grew from $457B to $1.1T, a 27% CAGR.",
+    source: {
+      label: "SIIPS 2025 / NIP Nigeria Case Study",
+      url: "https://www.africanenda.org/uploads/files/siips2025/siips_2025_NIP-Nigeria_CaseStudy_en.pdf",
+    },
+  },
+  {
+    icon: Cpu,
+    title: "AI Adoption",
+    stat: "AI Boom",
+    statLabel: "Now is the inflection point",
+    desc: "SMBs are starting to adopt AI tools to automate operations and sales &mdash; the platforms that bake it in win.",
+    source: null,
+  },
 ];
 
 const Slide8 = () => (
   <SlideContent>
-    <motion.p variants={staggerItem} className="text-sm sm:text-base md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-4">
-      Why Now
-    </motion.p>
-    <motion.h2 variants={staggerItem} className="text-4xl sm:text-5xl md:text-7xl font-black text-foreground text-center leading-[1.05]">
-      Three Trends <span className="text-primary">Converging</span>
+    <Eyebrow index="04">Why Now</Eyebrow>
+
+    <motion.h2
+      variants={staggerItem}
+      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground text-center leading-[0.95] tracking-tight"
+    >
+      Three trends,
+      <br />
+      <span className="text-primary">converging.</span>
     </motion.h2>
 
-    <motion.div variants={staggerItem} className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl w-full">
-      {trends.map(({ icon: Icon, title, desc }, i) => (
-        <div key={i} className="relative bg-secondary/40 rounded-2xl p-5 sm:p-6 border border-border hover:border-primary/40 transition-colors">
-          <div className="absolute -top-3 -left-3 w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-black shadow-lg">
-            {i + 1}
+    <motion.div
+      variants={staggerItem}
+      className="mt-5 sm:mt-6 grid grid-cols-1 md:grid-cols-3 gap-2.5 sm:gap-3 max-w-5xl w-full"
+    >
+      {trends.map(({ icon: Icon, title, stat, statLabel, desc, source }, i) => (
+        <div
+          key={title}
+          className="bg-secondary/25 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 md:p-4.5 border border-border/50 flex flex-col"
+        >
+          <div className="flex items-center justify-between mb-3 sm:mb-4">
+            <span className="text-[8px] sm:text-[9px] font-mono tracking-[0.22em] text-primary">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground" strokeWidth={1.5} />
           </div>
-          <div className="w-12 h-12 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center mb-4">
-            <Icon className="w-6 h-6 text-primary" />
-          </div>
-          <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">{title}</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
+
+          <p className="text-3xl sm:text-4xl md:text-5xl font-black text-foreground tracking-tight leading-none">
+            {stat}
+          </p>
+          <p className="text-[10px] sm:text-[11px] text-muted-foreground mt-1 sm:mt-1.5">{statLabel}</p>
+
+          <div className="my-2.5 sm:my-3 h-px bg-border/60" />
+
+          <h3 className="text-xs sm:text-sm font-bold text-foreground">{title}</h3>
+          <p
+            className="text-[10px] sm:text-[11px] md:text-xs text-muted-foreground mt-1 leading-snug flex-1"
+            dangerouslySetInnerHTML={{ __html: desc }}
+          />
+          {source && (
+            <p className="mt-2.5 sm:mt-3 text-[8px] sm:text-[9px] font-mono uppercase tracking-[0.16em] text-muted-foreground/60">
+              Source &middot;{" "}
+              <a
+                href={source.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-primary transition-colors"
+              >
+                {source.label}
+              </a>
+            </p>
+          )}
         </div>
       ))}
     </motion.div>
 
-    <motion.p variants={staggerItem} className="mt-8 text-base sm:text-xl font-bold text-primary text-center max-w-3xl">
+    <motion.p
+      variants={staggerItem}
+      className="mt-4 sm:mt-5 text-xs sm:text-sm text-foreground text-center max-w-3xl px-2"
+    >
       Fingertipps sits at the intersection of all three.
     </motion.p>
   </SlideContent>

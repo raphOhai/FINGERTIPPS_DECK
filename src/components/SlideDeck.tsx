@@ -25,22 +25,19 @@ const slides = [
 ];
 
 const variants = {
-  enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0 }),
+  enter: (dir: number) => ({ x: dir > 0 ? 60 : -60, opacity: 0 }),
   center: { x: 0, opacity: 1 },
-  exit: (dir: number) => ({ x: dir > 0 ? -80 : 80, opacity: 0 }),
+  exit: (dir: number) => ({ x: dir > 0 ? -60 : 60, opacity: 0 }),
 };
 
 const SlideDeck = () => {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
 
-  const go = useCallback(
-    (dir: number) => {
-      setDirection(dir);
-      setIndex((i) => Math.max(0, Math.min(slides.length - 1, i + dir)));
-    },
-    []
-  );
+  const go = useCallback((dir: number) => {
+    setDirection(dir);
+    setIndex((i) => Math.max(0, Math.min(slides.length - 1, i + dir)));
+  }, []);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -58,9 +55,13 @@ const SlideDeck = () => {
   }, [go]);
 
   const Slide = slides[index];
+  const total = slides.length;
+  const num = String(index + 1).padStart(2, "0");
+  const totalStr = String(total).padStart(2, "0");
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-gradient-to-br from-background to-secondary select-none">
+    <div className="relative w-screen h-[100dvh] overflow-hidden bg-background select-none">
+      {/* Slide content */}
       <AnimatePresence mode="wait" custom={direction}>
         <motion.div
           key={index}
@@ -69,53 +70,72 @@ const SlideDeck = () => {
           initial="enter"
           animate="center"
           exit="exit"
-          transition={{ duration: 0.35, ease: "easeInOut" }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0"
         >
           <Slide />
         </motion.div>
       </AnimatePresence>
 
-      {/* Persistent logo */}
-      <div className="absolute top-5 left-6 z-10">
-        <img src={logo} alt="Fingertipps" className="h-6 w-auto" />
+      {/* Top chrome */}
+      <div className="pointer-events-none absolute top-0 inset-x-0 h-12 sm:h-14 flex items-center justify-between px-4 sm:px-8 z-10">
+        <div className="pointer-events-auto flex items-center gap-3">
+          <img src={logo} alt="Fingertipps" className="h-4 sm:h-5 w-auto" />
+        </div>
+        <span className="text-[9px] sm:text-[10px] font-mono font-semibold tracking-[0.25em] text-muted-foreground/70">
+          {num} <span className="text-muted-foreground/30">/</span> {totalStr}
+        </span>
       </div>
 
-      {/* Slide counter */}
-      <div className="absolute top-4 right-4 text-xs text-muted-foreground/50 font-mono">
-        {index + 1} / {slides.length}
+      {/* Bottom chrome */}
+      <div className="pointer-events-none absolute bottom-0 inset-x-0 z-10">
+        <div className="mx-4 sm:mx-8 h-px bg-border/50" />
+        <div className="px-4 sm:px-8 h-12 sm:h-14 flex items-center justify-between gap-3">
+          <span className="text-[9px] sm:text-[10px] font-mono font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 truncate">
+            <span className="hidden sm:inline">Fingertipps &middot; </span>PITCH DECK
+          </span>
+          <div className="pointer-events-auto flex items-center gap-1 sm:gap-1.5">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  setDirection(i > index ? 1 : -1);
+                  setIndex(i);
+                }}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`h-[3px] rounded-full transition-all duration-300 ${
+                  i === index
+                    ? "w-5 sm:w-6 bg-primary"
+                    : "w-2 sm:w-2.5 bg-muted-foreground/25 hover:bg-muted-foreground/60"
+                }`}
+              />
+            ))}
+          </div>
+          <span className="text-[9px] sm:text-[10px] font-mono font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 hidden md:block">
+            {num} / {totalStr}
+          </span>
+        </div>
       </div>
 
-      {/* Nav buttons */}
+      {/* Side navigation */}
       {index > 0 && (
         <button
           onClick={() => go(-1)}
-          className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full text-muted-foreground hover:text-foreground transition-colors"
+          aria-label="Previous slide"
+          className="absolute left-1 sm:left-3 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 rounded-full text-muted-foreground/60 hover:text-primary transition-colors z-10"
         >
-          <ChevronLeft size={32} />
+          <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={1.5} />
         </button>
       )}
-      {index < slides.length - 1 && (
+      {index < total - 1 && (
         <button
           onClick={() => go(1)}
-          className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full text-muted-foreground hover:text-foreground transition-colors"
+          aria-label="Next slide"
+          className="absolute right-1 sm:right-3 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 rounded-full text-muted-foreground/60 hover:text-primary transition-colors z-10"
         >
-          <ChevronRight size={32} />
+          <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={1.5} />
         </button>
       )}
-
-      {/* Progress dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => { setDirection(i > index ? 1 : -1); setIndex(i); }}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              i === index ? "bg-primary scale-125" : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
-            }`}
-          />
-        ))}
-      </div>
     </div>
   );
 };

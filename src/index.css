@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @layer base {
   :root {
@@ -58,6 +58,32 @@
   }
 }
 
+@layer components {
+  .slide-content-inner {
+    transform-origin: top center;
+    width: 100%;
+  }
+}
+
+@media (max-height: 900px) {
+  .slide-content-inner {
+    transform: scale(0.94);
+  }
+}
+
+@media (max-height: 820px) {
+  .slide-content-inner {
+    transform: scale(0.89);
+  }
+}
+
+@media (max-height: 740px) {
+  .slide-content-inner {
+    transform: scale(0.84);
+  }
+}
+
+
 @layer base {
   * {
     @apply border-border;
@@ -66,5 +92,28 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Inter', sans-serif;
+  }
+
+  /* Scrollbar — visible, themed, thin */
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 9999px;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+  *::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
   }
 }
