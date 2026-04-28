@@ -45,7 +45,7 @@ const Slide2 = () => (
     >
       Small businesses run in
       <br />
-      <span className="text-destructive">chaos.</span>
+      <span className="text-primary">chaos.</span>
     </motion.h2>
 
     <motion.p
@@ -63,10 +63,10 @@ const Slide2 = () => (
       {painGroups.map(({ label, icon: Icon, headline, bullets }, i) => (
         <div
           key={label}
-          className="relative bg-secondary/25 rounded-xl sm:rounded-2xl p-4 sm:p-4.5 border border-border/50 hover:border-destructive/40 transition-colors flex flex-col"
+          className="relative bg-secondary/25 rounded-xl sm:rounded-2xl p-4 sm:p-4.5 border border-border/50 hover:border-primary/40 transition-colors flex flex-col"
         >
           <div className="flex items-center justify-between mb-3 sm:mb-4">
-            <span className="text-[8px] sm:text-[9px] font-mono tracking-[0.22em] uppercase text-destructive">
+            <span className="text-[8px] sm:text-[9px] font-mono tracking-[0.22em] uppercase text-primary">
               {String(i + 1).padStart(2, "0")} / {label}
             </span>
             <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground" strokeWidth={1.5} />
@@ -81,7 +81,7 @@ const Slide2 = () => (
                 key={b}
                 className="flex items-start gap-2 text-[11px] sm:text-xs text-foreground/90 leading-snug"
               >
-                <span className="mt-1.5 w-1 h-1 rounded-full bg-destructive flex-shrink-0" />
+                <span className="mt-1.5 w-1 h-1 rounded-full bg-primary flex-shrink-0" />
                 {b}
               </li>
             ))}
@@ -92,9 +92,9 @@ const Slide2 = () => (
 
     <motion.div
       variants={staggerItem}
-      className="mt-4 sm:mt-5 inline-flex items-center gap-2 px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full border border-destructive/40"
+      className="mt-4 sm:mt-5 inline-flex items-center gap-2 px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full border border-primary/40"
     >
-      <span className="w-1.5 h-1.5 rounded-full bg-destructive animate-pulse" />
+      <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
       <span className="text-[10px] sm:text-[11px] md:text-xs font-medium text-foreground">
         Millions of African businesses are stuck running manually
       </span>
