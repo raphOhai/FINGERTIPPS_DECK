@@ -1,114 +1,96 @@
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Sparkles, Bot, Store, Banknote } from "lucide-react";
 import SlideContent, { staggerItem, Eyebrow } from "../SlideContent";
 
-const projections = [
-  { value: "25,000", label: "Paying businesses by Year 1" },
-  { value: "₦5,000", label: "Avg. ARPU / month" },
-  { value: "₦1.5B+", label: "Year-1 exit ARR" },
+const items = [
+  {
+    icon: Sparkles,
+    title: "AI Website Builder",
+    desc: "Build a complete website by describing it in a single chat.",
+    status: "Next",
+  },
+  {
+    icon: Bot,
+    title: "Lira AI Expansion",
+    desc: "Advanced sales automation, customer support, and lead qualification.",
+    status: "Q3 2026",
+  },
+  {
+    icon: Store,
+    title: "Marketplace Layer",
+    desc: "Discover and buy from Fingertipps merchants in a unified storefront.",
+    status: "Q4 2026",
+  },
+  {
+    icon: Banknote,
+    title: "Embedded Finance",
+    desc: "Working capital, BNPL, and instant payouts - built on top of merchant cash-flow.",
+    status: "2027",
+  },
 ];
-
-const monthlyFeatures = ["All core features", "AI agent (Lira)", "Cancel anytime"];
-const annualFeatures = ["Everything in Monthly", "15% discount", "Priority support"];
 
 const Slide10 = () => (
   <SlideContent>
-    <Eyebrow index="07">Business Model</Eyebrow>
+    <Eyebrow index="10">Roadmap</Eyebrow>
 
     <motion.h2
       variants={staggerItem}
-      className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-black text-foreground text-center leading-[0.95] tracking-tight"
+      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground text-center leading-[0.95] tracking-tight"
     >
-      Subscription <span className="text-primary">SaaS.</span>
+      What's <span className="text-primary">coming next.</span>
     </motion.h2>
 
-    <motion.p
-      variants={staggerItem}
-      className="mt-2 sm:mt-3 max-w-2xl text-center text-[10px] sm:text-xs text-muted-foreground leading-relaxed px-2 hidden sm:block"
-    >
-      Predictable, low-friction pricing tuned for the African SMB &mdash; designed to
-      compound monthly recurring revenue at scale.
-    </motion.p>
-
-    <motion.div
-      variants={staggerItem}
-      className="mt-3 sm:mt-4 grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 max-w-4xl w-full"
-    >
-      <div className="bg-secondary/25 rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-border/50">
-        <div className="flex items-center justify-between mb-3 sm:mb-4">
-          <p className="text-[8px] sm:text-[9px] font-mono tracking-[0.24em] uppercase text-muted-foreground">
-            Monthly
-          </p>
-          <span className="text-[8px] sm:text-[9px] font-mono text-muted-foreground/50">01</span>
-        </div>
-        <div className="flex items-baseline gap-2">
-          <p className="text-2xl sm:text-4xl md:text-[2rem] font-black text-foreground tracking-tight leading-none">
-            ₦5,000
-          </p>
-          <span className="text-[11px] sm:text-xs text-muted-foreground">/mo</span>
-        </div>
-        <p className="text-[10px] sm:text-[11px] text-muted-foreground mt-1 sm:mt-1.5">~$3 / month</p>
-        <div className="my-3 sm:my-3.5 h-px bg-border/60" />
-        <div className="flex flex-col gap-1.5 sm:gap-2">
-          {monthlyFeatures.map((f) => (
-            <div key={f} className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-foreground/90 leading-snug">
-              <Check className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-primary" strokeWidth={2.5} /> {f}
-            </div>
-          ))}
-        </div>
+    <motion.div variants={staggerItem} className="mt-4 sm:mt-5 max-w-5xl w-full">
+      {/* Timeline rail */}
+      <div className="hidden md:flex items-center justify-center gap-4 mb-3">
+        {items.map((_, i) => (
+          <div key={i} className="flex items-center">
+            <span className="text-[8px] font-mono tracking-[0.22em] uppercase text-primary">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            {i < items.length - 1 && <span className="w-16 h-px bg-border/60 ml-4" />}
+          </div>
+        ))}
       </div>
 
-      <div className="relative bg-primary/[0.06] rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-primary/40">
-        <div className="flex items-center justify-between mb-3 sm:mb-4">
-          <p className="text-[8px] sm:text-[9px] font-mono tracking-[0.24em] uppercase text-primary">
-            Annual
-          </p>
-          <span className="text-[8px] font-mono tracking-[0.16em] uppercase text-primary border border-primary/40 px-1.5 py-0.5 rounded-full">
-            Best Value
-          </span>
-        </div>
-        <div className="flex items-baseline gap-2">
-          <p className="text-2xl sm:text-4xl md:text-[2rem] font-black text-primary tracking-tight leading-none">
-            ₦51,000
-          </p>
-          <span className="text-[11px] sm:text-xs text-muted-foreground">/yr</span>
-        </div>
-        <p className="text-[10px] sm:text-[11px] text-muted-foreground mt-1 sm:mt-1.5">15% discount</p>
-        <div className="my-3 sm:my-3.5 h-px bg-primary/30" />
-        <div className="flex flex-col gap-1.5 sm:gap-2">
-          {annualFeatures.map((f) => (
-            <div key={f} className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-foreground/90 leading-snug">
-              <Check className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-primary" strokeWidth={2.5} /> {f}
+      {/* Milestone cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5">
+        {items.map(({ icon: Icon, title, desc, status }, i) => (
+          <div
+            key={title}
+            className="bg-secondary/25 rounded-xl sm:rounded-2xl p-3.5 sm:p-4.5 border border-border/50 hover:border-primary/35 transition-colors"
+          >
+            <div className="flex items-center justify-between mb-3">
+              <div className="inline-flex items-center gap-2">
+                <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-background border border-primary/30 flex items-center justify-center">
+                  <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" strokeWidth={1.75} />
+                </span>
+                <span className="text-[8px] sm:text-[9px] font-mono tracking-[0.22em] text-muted-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <span className="text-[8px] sm:text-[9px] font-mono tracking-[0.16em] uppercase text-primary border border-primary/40 px-1.5 sm:px-2 py-0.5 rounded-full whitespace-nowrap">
+                {status}
+              </span>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* Projection panel moves inline on desktop for better fit */}
-      <div className="bg-background/50 rounded-xl sm:rounded-2xl border border-border/60 p-2.5 sm:p-3.5 col-span-2 md:col-span-1">
-        <div className="flex items-center gap-2 mb-2 sm:mb-2.5">
-          <span className="text-[8px] sm:text-[9px] font-mono tracking-[0.2em] uppercase text-muted-foreground/80">
-            Year-1 Projection
-          </span>
-          <span className="flex-1 h-px bg-border/60" />
-        </div>
-        <div className="grid grid-cols-3 md:grid-cols-1 gap-px bg-border/60 rounded-lg overflow-hidden border border-border/60">
-          {projections.map((p) => (
-            <div key={p.label} className="bg-background py-1.5 sm:py-2.5 px-1 sm:px-2 text-center md:text-left">
-              <p className="text-xs sm:text-base md:text-xl font-black text-foreground tracking-tight">
-                {p.value}
-              </p>
-              <p className="text-[7px] sm:text-[9px] md:text-[10px] text-muted-foreground mt-0.5 leading-tight">
-                {p.label}
-              </p>
-            </div>
-          ))}
-        </div>
+            <h3 className="text-sm sm:text-base md:text-lg font-bold text-foreground leading-tight">
+              {title}
+            </h3>
+            <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground mt-1.5 leading-relaxed">
+              {desc}
+            </p>
+          </div>
+        ))}
       </div>
     </motion.div>
 
-    <motion.p variants={staggerItem} className="mt-1.5 sm:mt-2 text-[8px] sm:text-[10px] text-muted-foreground/70 text-center max-w-4xl hidden sm:block">
-      25,000 businesses &times; ₦5,000/mo &times; 12 = ₦1.5B+ ARR exit Year 1.
+    <motion.p
+      variants={staggerItem}
+      className="mt-4 sm:mt-5 text-[11px] sm:text-xs md:text-sm text-muted-foreground text-center max-w-2xl px-2"
+    >
+      The path from commerce platform to{" "}
+      <span className="text-foreground font-semibold">embedded SMB OS</span>.
     </motion.p>
   </SlideContent>
 );

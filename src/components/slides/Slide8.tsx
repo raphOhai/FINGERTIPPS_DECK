@@ -1,103 +1,76 @@
 import { motion } from "framer-motion";
-import { Smartphone, CreditCard, Cpu } from "lucide-react";
+import { Users, DollarSign, TrendingUp } from "lucide-react";
 import SlideContent, { staggerItem, Eyebrow } from "../SlideContent";
 
-const trends = [
+const metrics = [
   {
-    icon: Smartphone,
-    title: "Social Commerce",
-    stat: "64%",
-    statLabel: "of small businesses sell on social",
-    desc: "Most African vendors already operate on Instagram, TikTok, and WhatsApp.",
-    source: {
-      label: "Moniepoint, 2026",
-      url: "https://moniepoint.com/blog/nigeria-small-business-statistics",
-    },
+    value: "200+",
+    label: "Users via organic channels",
+    sub: "in 1 year",
+    icon: Users,
   },
   {
-    icon: CreditCard,
-    title: "Digital Payments",
-    stat: "57.7M",
-    statLabel: "Nigerians are in the financial inclusion bracket (52% of adults)",
-    desc: "NIP volumes grew from 2B (2020) to 11B (2024), a 53% CAGR. Transaction value grew from $457B to $1.1T, a 27% CAGR.",
-    source: {
-      label: "SIIPS 2025 / NIP Nigeria Case Study",
-      url: "https://www.africanenda.org/uploads/files/siips2025/siips_2025_NIP-Nigeria_CaseStudy_en.pdf",
-    },
+    value: "₦25M+",
+    label: "Total processed volume",
+    sub: "Jan 2025 — Date",
+    icon: DollarSign,
   },
   {
-    icon: Cpu,
-    title: "AI Adoption",
-    stat: "AI Boom",
-    statLabel: "Now is the inflection point",
-    desc: "SMBs are starting to adopt AI tools to automate operations and sales &mdash; the platforms that bake it in win.",
-    source: null,
+    value: "20%",
+    label: "Month-over-month growth",
+    sub: "consistent",
+    icon: TrendingUp,
   },
 ];
 
 const Slide8 = () => (
   <SlideContent>
-    <Eyebrow index="04">Why Now</Eyebrow>
+    <Eyebrow index="08">Traction</Eyebrow>
 
     <motion.h2
       variants={staggerItem}
-      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground text-center leading-[0.95] tracking-tight"
+      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground text-center leading-[0.95] tracking-tight"
     >
-      Three trends,
-      <br />
-      <span className="text-primary">converging.</span>
+      Early <span className="text-primary">momentum.</span>
     </motion.h2>
+
+    <motion.p
+      variants={staggerItem}
+      className="mt-4 sm:mt-5 max-w-2xl text-center text-sm sm:text-base text-muted-foreground leading-relaxed px-2"
+    >
+      Here's what we've achieved without paid acquisition.
+    </motion.p>
 
     <motion.div
       variants={staggerItem}
-      className="mt-5 sm:mt-6 grid grid-cols-1 md:grid-cols-3 gap-2.5 sm:gap-3 max-w-5xl w-full"
+      className="mt-8 sm:mt-10 grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 max-w-5xl w-full"
     >
-      {trends.map(({ icon: Icon, title, stat, statLabel, desc, source }, i) => (
+      {metrics.map(({ value, label, sub, icon: Icon }, i) => (
         <div
-          key={title}
-          className="bg-secondary/25 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 md:p-4.5 border border-border/50 flex flex-col"
+          key={label}
+          className="relative bg-secondary/25 rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-border/50 overflow-hidden"
         >
-          <div className="flex items-center justify-between mb-3 sm:mb-4">
-            <span className="text-[8px] sm:text-[9px] font-mono tracking-[0.22em] text-primary">
-              {String(i + 1).padStart(2, "0")}
+          <div className="flex items-center justify-between mb-5 sm:mb-6">
+            <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.25em] text-primary">
+              KPI / {String(i + 1).padStart(2, "0")}
             </span>
-            <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground" strokeWidth={1.5} />
+            <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground" strokeWidth={1.5} />
           </div>
-
-          <p className="text-3xl sm:text-4xl md:text-5xl font-black text-foreground tracking-tight leading-none">
-            {stat}
+          <p className="text-5xl sm:text-6xl md:text-7xl font-black text-foreground tracking-tight leading-none">
+            {value}
           </p>
-          <p className="text-[10px] sm:text-[11px] text-muted-foreground mt-1 sm:mt-1.5">{statLabel}</p>
-
-          <div className="my-2.5 sm:my-3 h-px bg-border/60" />
-
-          <h3 className="text-xs sm:text-sm font-bold text-foreground">{title}</h3>
-          <p
-            className="text-[10px] sm:text-[11px] md:text-xs text-muted-foreground mt-1 leading-snug flex-1"
-            dangerouslySetInnerHTML={{ __html: desc }}
-          />
-          {source && (
-            <p className="mt-2.5 sm:mt-3 text-[8px] sm:text-[9px] font-mono uppercase tracking-[0.16em] text-muted-foreground/60">
-              Source &middot;{" "}
-              <a
-                href={source.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-primary transition-colors"
-              >
-                {source.label}
-              </a>
-            </p>
-          )}
+          <div className="mt-4 sm:mt-5 h-px bg-border/60" />
+          <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-foreground font-medium">{label}</p>
+          <p className="mt-1 text-[11px] sm:text-xs text-muted-foreground">{sub}</p>
         </div>
       ))}
     </motion.div>
 
     <motion.p
       variants={staggerItem}
-      className="mt-4 sm:mt-5 text-xs sm:text-sm text-foreground text-center max-w-3xl px-2"
+      className="mt-6 sm:mt-8 text-xs sm:text-sm text-muted-foreground text-center max-w-2xl px-2"
     >
-      Fingertipps sits at the intersection of all three.
+      Strong organic signal. Low CAC. Repeatable growth motions ready to scale.
     </motion.p>
   </SlideContent>
 );

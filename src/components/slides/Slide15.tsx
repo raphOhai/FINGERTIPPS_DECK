@@ -1,139 +1,94 @@
 import { motion } from "framer-motion";
-import { Target, ShieldCheck, Cpu, Linkedin } from "lucide-react";
-import SlideContent, { staggerItem, Eyebrow } from "../SlideContent";
-import emmanuelPhoto from "@/assets/emmanuel-orilade.png";
-import raphaelPhoto from "@/assets/raphael-ohai-copy2-a7069918.png";
-
-const capabilityStrips = [
-  { icon: Target, label: "Product + Strategy Leadership" },
-  { icon: Cpu, label: "Engineering + Systems Execution" },
-  { icon: ShieldCheck, label: "Compliance + Scale Readiness" },
-];
+import { Mail, Globe, ArrowRight, Calendar, FileText } from "lucide-react";
+import SlideContent, { staggerItem } from "../SlideContent";
 
 const Slide15 = () => (
   <SlideContent>
-    <Eyebrow index="12">Team</Eyebrow>
+    <motion.div variants={staggerItem} className="flex items-center gap-2 sm:gap-3 mb-5 sm:mb-7">
+      <span className="h-px w-6 sm:w-10 bg-primary" />
+      <span className="text-[9px] sm:text-[11px] font-mono tracking-[0.3em] uppercase text-primary">
+        Closing
+      </span>
+      <span className="h-px w-6 sm:w-10 bg-primary" />
+    </motion.div>
 
     <motion.h2
       variants={staggerItem}
-      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground text-center leading-[0.95] tracking-tight"
+      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground text-center max-w-5xl leading-[0.95] tracking-tight px-2"
     >
-      Built by two <span className="text-primary">complementary operators.</span>
+      Powering the next generation of{" "}
+      <span className="text-primary">African entrepreneurs.</span>
     </motion.h2>
-
-    <motion.p
-      variants={staggerItem}
-      className="mt-2 sm:mt-3 max-w-3xl text-center text-[11px] sm:text-xs text-muted-foreground leading-relaxed px-2"
-    >
-      Operator-led, product-native, and execution-focused across strategy, engineering, and scale.
-    </motion.p>
 
     <motion.div
       variants={staggerItem}
-      className="mt-3 sm:mt-4 bg-secondary/25 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 border border-border/50 max-w-4xl w-full"
+      className="mt-6 sm:mt-8 max-w-2xl text-center space-y-2 sm:space-y-2.5 px-2"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3">
-        <div className="bg-background/40 rounded-xl border border-border/40 p-3 sm:p-4">
-          <div className="flex items-center gap-2.5">
-            <img
-              src={emmanuelPhoto}
-              alt="Emmanuel Orilade"
-              className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg object-cover border border-primary/30"
-            />
-            <div>
-              <p className="text-[8px] sm:text-[9px] font-mono tracking-[0.2em] uppercase text-muted-foreground/80">
-                Co-Founder &amp; CEO
-              </p>
-              <h3 className="mt-0.5 text-base sm:text-lg font-black text-foreground tracking-tight">
-                Emmanuel Orilade
-              </h3>
-            </div>
-          </div>
-          <p className="mt-2 text-[10px] sm:text-[11px] text-foreground font-medium">
-            Mechatronics Engineer &amp; MBA professional.
-          </p>
-          <p className="mt-0.5 text-[9px] sm:text-[10px] text-muted-foreground leading-snug">
-            Combines deep technical problem-solving with business strategy and execution.
-          </p>
-          <div className="mt-1.5 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-primary/30 bg-primary/10">
-            <span className="text-[7px] sm:text-[8px] font-mono tracking-[0.18em] uppercase text-primary">Owns</span>
-            <span className="text-[9px] sm:text-[10px] text-foreground font-medium">Product &amp; Strategy</span>
-          </div>
-          <a
-            href="https://www.linkedin.com/in/emmanueldbuilder/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 flex w-full items-center gap-1.5 text-[10px] sm:text-[11px] text-primary hover:text-primary/80 transition-colors"
-          >
-            <Linkedin className="w-3 h-3" />
-            linkedin.com/in/emmanueldbuilder
-          </a>
-        </div>
-
-        <div className="bg-background/40 rounded-xl border border-border/40 p-3 sm:p-4">
-          <div className="flex items-center gap-2.5">
-            <img
-              src={raphaelPhoto}
-              alt="Raphael Ohai"
-              className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg object-cover border border-primary/30"
-            />
-            <div>
-              <p className="text-[8px] sm:text-[9px] font-mono tracking-[0.2em] uppercase text-muted-foreground/80">
-                Co-Founder &amp; CTO
-              </p>
-              <h3 className="mt-0.5 text-base sm:text-lg font-black text-foreground tracking-tight">
-                Raphael Ohai
-              </h3>
-            </div>
-          </div>
-          <p className="mt-2 text-[10px] sm:text-[11px] text-foreground font-medium">
-            Computer Scientist with 5+ years building products.
-          </p>
-          <p className="mt-0.5 text-[9px] sm:text-[10px] text-muted-foreground leading-snug">
-            Built consumer and enterprise solutions used by millions of users globally.
-          </p>
-          <div className="mt-1.5 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-primary/30 bg-primary/10">
-            <span className="text-[7px] sm:text-[8px] font-mono tracking-[0.18em] uppercase text-primary">Owns</span>
-            <span className="text-[9px] sm:text-[10px] text-foreground font-medium">Engineering &amp; Delivery</span>
-          </div>
-          <a
-            href="https://www.linkedin.com/in/raphael-ohai-micheal/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 flex w-full items-center gap-1.5 text-[10px] sm:text-[11px] text-primary hover:text-primary/80 transition-colors"
-          >
-            <Linkedin className="w-3 h-3" />
-            linkedin.com/in/raphael-ohai-micheal
-          </a>
-        </div>
-      </div>
-
-      <div className="mt-3 sm:mt-4 h-px bg-border/60" />
-
-      <div className="mt-2.5 sm:mt-3 grid grid-cols-1 sm:grid-cols-3 gap-1.5 sm:gap-2">
-        {capabilityStrips.map(({ icon: Icon, label }, i) => (
-          <div
-            key={label}
-            className="bg-background/40 rounded-lg sm:rounded-xl px-2.5 sm:px-3 py-2 sm:py-2.5 border border-border/40 flex items-center gap-2 sm:gap-2.5"
-          >
-            <span className="text-[8px] sm:text-[9px] font-mono text-muted-foreground/60">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-primary flex-shrink-0" strokeWidth={1.75} />
-            <span className="text-[10px] sm:text-[11px] md:text-xs text-foreground font-medium leading-snug">
-              {label}
-            </span>
-          </div>
-        ))}
-      </div>
+      <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
+        Small businesses power the African economy.
+      </p>
+      <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
+        But they lack the tools to operate efficiently.
+      </p>
+      <p className="text-base sm:text-lg md:text-xl text-foreground font-semibold pt-1.5 sm:pt-2">
+        Fingertipps is the AI infrastructure that helps them{" "}
+        <span className="text-primary">launch</span>,{" "}
+        <span className="text-primary">automate</span>, and{" "}
+        <span className="text-primary">grow</span>.
+      </p>
     </motion.div>
 
-    <motion.p
+    {/* Primary CTA: book a call */}
+    <motion.div
       variants={staggerItem}
-      className="mt-3 sm:mt-4 text-[10px] sm:text-[11px] text-muted-foreground italic text-center px-2"
+      className="mt-7 sm:mt-9 flex flex-col sm:flex-row items-center gap-3 sm:gap-4"
     >
-      Building a lean, high-output leadership team to execute through the next stage of growth.
-    </motion.p>
+      <a
+        href="https://cal.com/emmanuel-orilade/fingertipps"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group inline-flex items-center gap-2.5 sm:gap-3 px-5 sm:px-7 py-3 sm:py-3.5 rounded-full bg-primary hover:bg-primary/90 transition-colors w-full sm:w-auto justify-center"
+      >
+        <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-foreground" strokeWidth={2} />
+        <span className="text-sm sm:text-base text-primary-foreground font-bold tracking-wide">
+          Book a 30-min call
+        </span>
+        <ArrowRight
+          className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-foreground group-hover:translate-x-1 transition-transform"
+          strokeWidth={2.5}
+        />
+      </a>
+      <a
+        href="mailto:emmanuel@fingertipps.com?subject=Fingertipps%20%E2%80%94%20Data%20Room%20Request"
+        className="inline-flex items-center gap-2 sm:gap-2.5 px-5 sm:px-6 py-3 sm:py-3.5 rounded-full border border-border/60 hover:border-primary/40 transition-colors w-full sm:w-auto justify-center"
+      >
+        <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-foreground" strokeWidth={1.75} />
+        <span className="text-sm sm:text-base text-foreground font-medium">
+          Request data room
+        </span>
+      </a>
+    </motion.div>
+
+    <motion.div
+      variants={staggerItem}
+      className="mt-7 sm:mt-9 flex flex-col sm:flex-row items-center gap-3 sm:gap-6 md:gap-8"
+    >
+      <a
+        href="mailto:emmanuel@fingertipps.com"
+        className="flex items-center gap-2 sm:gap-2.5 text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
+      >
+        <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={1.75} />
+        <span className="font-mono">emmanuel@fingertipps.com</span>
+      </a>
+      <span className="hidden sm:block w-px h-4 bg-border" />
+      <a
+        href="https://fingertipps.com"
+        className="flex items-center gap-2 sm:gap-2.5 text-xs sm:text-sm text-foreground hover:text-primary transition-colors"
+      >
+        <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={1.75} />
+        <span className="font-mono">fingertipps.com</span>
+      </a>
+    </motion.div>
   </SlideContent>
 );
 

@@ -1,127 +1,105 @@
 import { motion } from "framer-motion";
-import { Check, Minus } from "lucide-react";
+import { Megaphone, Code2, UserPlus, Building } from "lucide-react";
 import SlideContent, { staggerItem, Eyebrow } from "../SlideContent";
 
-type Row = {
-  name: string;
-  customization: boolean;
-  marketing: boolean;
-  ai: boolean;
-  affiliate: boolean;
-  pricing: boolean;
-};
-
-const competitors: Row[] = [
-  { name: "Fingertipps",       customization: true,  marketing: true,  ai: true,  affiliate: true,  pricing: true  },
-  { name: "Shopify",           customization: true,  marketing: true,  ai: false, affiliate: false, pricing: false },
-  { name: "Flutterwave Store", customization: false, marketing: false, ai: false, affiliate: false, pricing: true  },
-  { name: "Selar",             customization: false, marketing: false, ai: false, affiliate: true,  pricing: true  },
-  { name: "Bumpa",             customization: false, marketing: false, ai: false, affiliate: false, pricing: true  },
+const funds = [
+  {
+    pct: 40,
+    label: "Marketing & Sales",
+    points: [
+      "Attract new customers and retain existing ones.",
+      "Drive revenue growth through focused GTM execution.",
+    ],
+    icon: Megaphone,
+  },
+  {
+    pct: 30,
+    label: "Product Development",
+    points: [
+      "Further develop the product suite end-to-end.",
+      "Keep offerings competitive and aligned with customer needs.",
+    ],
+    icon: Code2,
+  },
+  {
+    pct: 20,
+    label: "Strategic Hires",
+    points: [
+      "Hire key leaders including a CMO and compliance officer.",
+      "Expand the core team to support long-term growth.",
+    ],
+    icon: UserPlus,
+  },
+  {
+    pct: 10,
+    label: "Operations & Legal",
+    points: [
+      "Strengthen operational infrastructure and controls.",
+      "Cover legal, compliance, and governance requirements.",
+    ],
+    icon: Building,
+  },
 ];
-
-const cols = [
-  { key: "customization", label: "Customizability" },
-  { key: "marketing", label: "Marketing" },
-  { key: "ai", label: "AI Agent" },
-  { key: "affiliate", label: "Affiliate" },
-  { key: "pricing", label: "Naira Pricing" },
-] as const;
 
 const Slide14 = () => (
   <SlideContent>
-    <Eyebrow index="11">Competition</Eyebrow>
+    <Eyebrow index="14">Use of Funds</Eyebrow>
 
     <motion.h2
       variants={staggerItem}
       className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-foreground text-center leading-[0.95] tracking-tight"
     >
-      Fingertipps vs.{" "}
-      <span className="text-muted-foreground/60">the rest.</span>
+      Where the <span className="text-primary">money goes.</span>
     </motion.h2>
-
-    <motion.p
-      variants={staggerItem}
-      className="mt-2 max-w-3xl text-center text-[10px] sm:text-xs text-muted-foreground leading-relaxed px-2"
-    >
-      Global platforms are built for global merchants. Local platforms are
-      single-purpose. Fingertipps is{" "}
-      <span className="text-foreground font-semibold">AI-native</span> and{" "}
-      <span className="text-foreground font-semibold">Africa-native</span>.
-    </motion.p>
 
     <motion.div
       variants={staggerItem}
-      className="mt-3 sm:mt-4 w-full max-w-5xl rounded-xl sm:rounded-2xl border border-border/60 overflow-hidden"
+      className="mt-3 sm:mt-4 max-w-4xl w-full overflow-hidden rounded-xl sm:rounded-2xl border border-border/60"
     >
-      <div className="overflow-x-auto">
-        <table className="w-full text-[10px] sm:text-xs min-w-[560px]">
-          <thead>
-            <tr className="border-b border-border/60">
-              <th className="text-left py-1.5 sm:py-2 px-2 sm:px-3 text-[8px] sm:text-[9px] font-mono tracking-[0.18em] sm:tracking-[0.22em] uppercase text-muted-foreground/80">
-                Platform
-              </th>
-              {cols.map((c) => (
-                <th
-                  key={c.key}
-                  className="text-center py-1.5 sm:py-2 px-0.5 sm:px-1 text-[8px] sm:text-[9px] font-mono tracking-[0.08em] sm:tracking-[0.14em] uppercase text-muted-foreground/80 whitespace-nowrap"
+      <div className="flex h-1.5 w-full">
+        <div className="bg-primary" style={{ width: "40%" }} />
+        <div className="bg-primary/70" style={{ width: "30%" }} />
+        <div className="bg-primary/45" style={{ width: "20%" }} />
+        <div className="bg-primary/25" style={{ width: "10%" }} />
+      </div>
+
+      <div className="grid grid-cols-2 gap-px bg-border/60">
+        {funds.map(({ pct, label, points, icon: Icon }, i) => (
+          <div key={label} className="bg-background p-2.5 sm:p-3.5 md:p-4">
+            <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+              <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-primary flex-shrink-0" strokeWidth={1.5} />
+                <span className="text-[7px] sm:text-[8px] font-mono tracking-[0.2em] uppercase text-muted-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <span className="text-xl sm:text-2xl md:text-3xl font-black text-foreground tracking-tight leading-none">
+                {pct}%
+              </span>
+            </div>
+            <h3 className="text-[11px] sm:text-xs md:text-sm font-bold text-foreground leading-snug">{label}</h3>
+            <ul className="mt-0.5 sm:mt-1 flex flex-col gap-0.5 sm:gap-1">
+              {points.map((point, idx) => (
+                <li
+                  key={point}
+                  className={`flex items-start gap-1 text-[9px] sm:text-[10px] md:text-[11px] text-muted-foreground leading-snug ${idx > 0 ? "hidden sm:flex" : ""}`}
                 >
-                  {c.label}
-                </th>
+                  <span className="mt-1 h-1 w-1 rounded-full bg-primary/70 flex-shrink-0" />
+                  <span>{point}</span>
+                </li>
               ))}
-            </tr>
-          </thead>
-          <tbody>
-            {competitors.map((comp) => {
-              const isUs = comp.name === "Fingertipps";
-              return (
-                <tr
-                  key={comp.name}
-                  className={`border-t border-border/40 ${isUs ? "bg-primary/[0.06]" : ""}`}
-                >
-                  <td className="py-1.5 sm:py-2 px-2 sm:px-3">
-                    <div className="flex items-center gap-2 sm:gap-3">
-                      {isUs && <span className="w-1 h-3.5 sm:h-4 bg-primary rounded-full" />}
-                      <span
-                        className={`font-bold text-[10px] sm:text-xs ${
-                          isUs ? "text-primary" : "text-foreground"
-                        }`}
-                      >
-                        {comp.name}
-                      </span>
-                    </div>
-                  </td>
-                  {cols.map((c) => (
-                    <td key={c.key} className="text-center py-1.5 sm:py-2 px-0.5 sm:px-1">
-                      {comp[c.key] ? (
-                        <Check
-                          className={`w-3 h-3 sm:w-3.5 sm:h-3.5 mx-auto ${
-                            isUs ? "text-primary" : "text-foreground/80"
-                          }`}
-                          strokeWidth={2.5}
-                        />
-                      ) : (
-                        <Minus
-                          className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-muted-foreground/30 mx-auto"
-                          strokeWidth={2}
-                        />
-                      )}
-                    </td>
-                  ))}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+            </ul>
+          </div>
+        ))}
       </div>
     </motion.div>
 
     <motion.p
       variants={staggerItem}
-      className="mt-2.5 sm:mt-3 text-[10px] sm:text-xs text-foreground text-center px-2"
+      className="mt-2.5 sm:mt-4 text-[10px] sm:text-[11px] md:text-xs text-muted-foreground text-center max-w-2xl px-2 hidden sm:block"
     >
-      The only platform built{" "}
-      <span className="text-primary font-semibold">AI-first</span>, for{" "}
-      <span className="text-primary font-semibold">African SMBs</span>.
+      Capital deployed where it produces the most leverage &mdash; growth,
+      product, and the team.
     </motion.p>
   </SlideContent>
 );

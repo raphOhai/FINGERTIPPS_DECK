@@ -1,80 +1,66 @@
 import { motion } from "framer-motion";
+import { GraduationCap, Share2, Send } from "lucide-react";
 import SlideContent, { staggerItem, Eyebrow } from "../SlideContent";
 
-const supporting = [
+const loops = [
   {
-    value: "$8.9B",
-    label: "Nigerian e-commerce revenue (2023)",
-    sub: "1st in Africa",
+    icon: GraduationCap,
+    title: "Campus Expansion",
+    desc: "Universities are dense clusters of student entrepreneurs &mdash; perfect first-customer beachheads.",
   },
   {
-    value: "48%",
-    label: "SME contribution to Nigeria's GDP",
-    sub: "Engine of the economy",
+    icon: Share2,
+    title: "Affiliate Distribution",
+    desc: "Creators earn commissions promoting Fingertipps. Built-in incentive to grow with us.",
   },
   {
-    value: "$15B+",
-    label: "Projected Nigerian e-commerce by 2029",
-    sub: "+10% CAGR",
+    icon: Send,
+    title: "Direct Outreach",
+    desc: "High-intent vendors on Instagram and WhatsApp converted via personalized outreach.",
   },
 ];
 
 const Slide9 = () => (
   <SlideContent>
-    <Eyebrow index="05">Market</Eyebrow>
+    <Eyebrow index="09">Go-to-Market</Eyebrow>
 
     <motion.h2
       variants={staggerItem}
-      className="text-2xl sm:text-3xl md:text-5xl font-black text-foreground text-center leading-[0.95] tracking-tight max-w-5xl"
+      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground text-center leading-[0.95] tracking-tight"
     >
-      A massive
-      <br />
-      <span className="text-primary">addressable market.</span>
+      Three <span className="text-primary">growth loops.</span>
     </motion.h2>
 
     <motion.div
       variants={staggerItem}
-      className="mt-5 sm:mt-6 grid grid-cols-3 gap-px bg-border/60 rounded-xl sm:rounded-2xl overflow-hidden border border-border/60 max-w-5xl w-full"
+      className="mt-8 sm:mt-10 grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 max-w-5xl w-full"
     >
-      {supporting.map((s, i) => (
+      {loops.map(({ icon: Icon, title, desc }, i) => (
         <div
-          key={s.label}
-          className="bg-background p-3 sm:p-3.5 md:p-4.5 flex flex-col items-start"
+          key={i}
+          className="relative bg-secondary/25 rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-border/50 hover:border-primary/40 transition-colors"
         >
-          <span className="text-[8px] sm:text-[10px] font-mono tracking-[0.22em] uppercase text-primary mb-2 sm:mb-2.5">
-            {String(i + 1).padStart(2, "0")}
-          </span>
-          <p className="text-2xl sm:text-4xl md:text-5xl font-black text-foreground tracking-tight leading-none">
-            {s.value}
-          </p>
-          <p className="mt-2 sm:mt-2.5 text-[10px] sm:text-xs md:text-sm text-foreground font-medium leading-snug">
-            {s.label}
-          </p>
-          <p className="mt-0.5 text-[9px] sm:text-[11px] text-muted-foreground">{s.sub}</p>
+          <div className="flex items-start justify-between mb-5 sm:mb-6">
+            <span className="text-4xl sm:text-5xl md:text-6xl font-black text-primary tracking-tight leading-none">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground mt-2" strokeWidth={1.5} />
+          </div>
+          <div className="my-4 h-px bg-border/60" />
+          <h3 className="text-base sm:text-lg font-bold text-foreground">{title}</h3>
+          <p
+            className="text-xs sm:text-sm text-muted-foreground leading-relaxed mt-1.5 sm:mt-2"
+            dangerouslySetInnerHTML={{ __html: desc }}
+          />
         </div>
       ))}
     </motion.div>
 
     <motion.p
       variants={staggerItem}
-      className="mt-4 sm:mt-5 text-xs sm:text-sm text-foreground text-center font-medium px-2"
+      className="mt-6 sm:mt-8 text-sm sm:text-base text-foreground text-center max-w-3xl px-2"
     >
-      Targeting <span className="text-primary">millions</span> of digital-first sellers.
-    </motion.p>
-
-    <motion.p
-      variants={staggerItem}
-      className="mt-2 text-[8px] sm:text-[10px] font-mono uppercase tracking-[0.16em] text-muted-foreground/60 text-center"
-    >
-      Source &middot;{" "}
-      <a
-        href="https://www.mordorintelligence.com/industry-reports/nigeria-ecommerce-market"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-primary transition-colors"
-      >
-        Mordor Intelligence
-      </a>
+      A path to <span className="text-primary font-semibold">50,000+</span> businesses.
     </motion.p>
   </SlideContent>
 );

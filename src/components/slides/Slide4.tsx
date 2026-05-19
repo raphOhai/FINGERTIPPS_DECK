@@ -1,104 +1,104 @@
 import { motion } from "framer-motion";
-import { Rocket, ShoppingBag, Sparkles } from "lucide-react";
+import { Smartphone, CreditCard, Cpu } from "lucide-react";
 import SlideContent, { staggerItem, Eyebrow } from "../SlideContent";
 
-const outcomes = [
+const trends = [
   {
-    label: "Launch",
-    icon: Rocket,
-    headline: "Online in minutes.",
-    bullets: [
-      "Branded website builder",
-      "Automatic Inventory & order management",
-      "Custom domain & checkout",
-    ],
+    icon: Smartphone,
+    title: "Social Commerce",
+    stat: "64%",
+    statLabel: "of small businesses sell on social",
+    desc: "Most African vendors already operate on Instagram, TikTok, and WhatsApp.",
+    source: {
+      label: "Moniepoint, 2026",
+      url: "https://moniepoint.com/blog/nigeria-small-business-statistics",
+    },
   },
   {
-    label: "Sell",
-    icon: ShoppingBag,
-    headline: "Anywhere, get paid.",
-    bullets: [
-      "Seamless payments",
-      "Send invoices with payment links",
-      "Run Affiliate programs",
-    ],
+    icon: CreditCard,
+    title: "Digital Payments",
+    stat: "57.7M",
+    statLabel: "Nigerians are in the financial inclusion bracket (52% of adults)",
+    desc: "NIP volumes grew from 2B (2020) to 11B (2024), a 53% CAGR. Transaction value grew from $457B to $1.1T, a 27% CAGR.",
+    source: {
+      label: "SIIPS 2025 / NIP Nigeria Case Study",
+      url: "https://www.africanenda.org/uploads/files/siips2025/siips_2025_NIP-Nigeria_CaseStudy_en.pdf",
+    },
   },
   {
-    label: "Automate & Grow",
-    icon: Sparkles,
-    headline: "Powered by AI.",
-    bullets: [
-      "Lira AI operations and sales agent",
-      "Run email and social campaigns",
-      "Business analytics",
-    ],
+    icon: Cpu,
+    title: "AI Adoption",
+    stat: "AI Boom",
+    statLabel: "Now is the inflection point",
+    desc: "SMBs are starting to adopt AI tools to automate operations and sales &mdash; the platforms that bake it in win.",
+    source: null,
   },
 ];
 
 const Slide4 = () => (
   <SlideContent>
-    <Eyebrow index="03">The Solution</Eyebrow>
+    <Eyebrow index="04">Why Now</Eyebrow>
 
     <motion.h2
       variants={staggerItem}
-      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground text-center leading-[0.95] tracking-tight max-w-5xl"
+      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground text-center leading-[0.95] tracking-tight"
     >
-      One dashboard.
+      Three trends,
       <br />
-      <span className="text-primary">Total control.</span>
+      <span className="text-primary">converging.</span>
     </motion.h2>
-
-    <motion.p
-      variants={staggerItem}
-      className="mt-3 sm:mt-4 max-w-2xl text-center text-xs sm:text-sm text-muted-foreground leading-relaxed px-2"
-    >
-      Fingertipps unifies the entire commerce stack into three outcomes &mdash; so
-      a small business can run from a single dashboard.
-    </motion.p>
 
     <motion.div
       variants={staggerItem}
       className="mt-5 sm:mt-6 grid grid-cols-1 md:grid-cols-3 gap-2.5 sm:gap-3 max-w-5xl w-full"
     >
-      {outcomes.map(({ label, icon: Icon, headline, bullets }, i) => (
+      {trends.map(({ icon: Icon, title, stat, statLabel, desc, source }, i) => (
         <div
-          key={label}
-          className="relative bg-secondary/25 rounded-xl sm:rounded-2xl p-4 sm:p-4.5 border border-border/50 hover:border-primary/40 transition-colors flex flex-col"
+          key={title}
+          className="bg-secondary/25 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 md:p-4.5 border border-border/50 flex flex-col"
         >
           <div className="flex items-center justify-between mb-3 sm:mb-4">
-            <span className="text-[8px] sm:text-[9px] font-mono tracking-[0.22em] uppercase text-primary">
-              {String(i + 1).padStart(2, "0")} / {label}
+            <span className="text-[8px] sm:text-[9px] font-mono tracking-[0.22em] text-primary">
+              {String(i + 1).padStart(2, "0")}
             </span>
             <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground" strokeWidth={1.5} />
           </div>
-          <h3 className="text-lg sm:text-xl md:text-2xl font-black text-foreground tracking-tight leading-tight">
-            {headline}
-          </h3>
-          <div className="my-3 sm:my-3.5 h-px bg-border/60" />
-          <ul className="flex flex-col gap-1.5 sm:gap-2">
-            {bullets.map((b) => (
-              <li
-                key={b}
-                className="flex items-start gap-2 text-[11px] sm:text-xs text-foreground/90 leading-snug"
+
+          <p className="text-3xl sm:text-4xl md:text-5xl font-black text-foreground tracking-tight leading-none">
+            {stat}
+          </p>
+          <p className="text-[10px] sm:text-[11px] text-muted-foreground mt-1 sm:mt-1.5">{statLabel}</p>
+
+          <div className="my-2.5 sm:my-3 h-px bg-border/60" />
+
+          <h3 className="text-xs sm:text-sm font-bold text-foreground">{title}</h3>
+          <p
+            className="text-[10px] sm:text-[11px] md:text-xs text-muted-foreground mt-1 leading-snug flex-1"
+            dangerouslySetInnerHTML={{ __html: desc }}
+          />
+          {source && (
+            <p className="mt-2.5 sm:mt-3 text-[8px] sm:text-[9px] font-mono uppercase tracking-[0.16em] text-muted-foreground/60">
+              Source &middot;{" "}
+              <a
+                href={source.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-primary transition-colors"
               >
-                <span className="mt-1.5 w-1 h-1 rounded-full bg-primary flex-shrink-0" />
-                {b}
-              </li>
-            ))}
-          </ul>
+                {source.label}
+              </a>
+            </p>
+          )}
         </div>
       ))}
     </motion.div>
 
-    <motion.div
+    <motion.p
       variants={staggerItem}
-      className="mt-4 sm:mt-5 inline-flex items-center gap-2 px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full border border-primary/40"
+      className="mt-4 sm:mt-5 text-xs sm:text-sm text-foreground text-center max-w-3xl px-2"
     >
-      <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-      <span className="text-[10px] sm:text-[11px] md:text-xs font-medium text-foreground">
-        Everything runs from one unified platform
-      </span>
-    </motion.div>
+      Fingertipps sits at the intersection of all three.
+    </motion.p>
   </SlideContent>
 );
 
