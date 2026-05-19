@@ -59,7 +59,7 @@ const Slide15 = () => (
         />
       </a>
       <a
-        href="mailto:emmanuel@fingertipps.com?subject=Fingertipps%20%E2%80%94%20Data%20Room%20Request"
+        href="mailto: raphael@fingertipps.com?subject=Fingertipps%20%E2%80%94%20Data%20Room%20Request"
         className="inline-flex items-center gap-2 sm:gap-2.5 px-5 sm:px-6 py-3 sm:py-3.5 rounded-full border border-border/60 hover:border-primary/40 transition-colors w-full sm:w-auto justify-center"
       >
         <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-foreground" strokeWidth={1.75} />
@@ -74,11 +74,11 @@ const Slide15 = () => (
       className="mt-7 sm:mt-9 flex flex-col sm:flex-row items-center gap-3 sm:gap-6 md:gap-8"
     >
       <a
-        href="mailto:emmanuel@fingertipps.com"
+        href="mailto: raphael@fingertipps.com"
         className="flex items-center gap-2 sm:gap-2.5 text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
       >
         <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={1.75} />
-        <span className="font-mono">emmanuel@fingertipps.com</span>
+        <span className="font-mono"> raphael@fingertipps.com</span>
       </a>
       <span className="hidden sm:block w-px h-4 bg-border" />
       <a
